@@ -26,9 +26,14 @@ public class Dungeon {
     static String FILENAME_LEADER = "Dungeon file: ";
     static String ROOM_STATES_MARKER = "Room states:";
 
+    //marker for items
+    public static String ITEMS_MARKER = "Items:";
+
+
     private String title;
     private Room entry;
     private Hashtable<String,Room> rooms;
+    private Hashtable<String, Item> items;  // hashtable to store items
     private String filename;
 
     Dungeon(String title, Room entry) {
@@ -60,12 +65,24 @@ public class Dungeon {
                 TOP_LEVEL_DELIM + "' after version indicator.");
         }
 
+        // Read items
+        if (!s.nextLine().equals(ITEMS_MARKER)) {
+            throw new IllegalDungeonFormatException("No '" +
+                ITEMS_MARKER + "' line where expected.");
+        }
+        try {
+            while (true) {
+                Item item = new Item(s);
+                items.put(item.getPrimaryName(), item);
+            }
+        } catch (Item.NoItemException e) { /* end of items */ }
+
+
         // Throw away Rooms starter.
         if (!s.nextLine().equals(ROOMS_MARKER)) {
             throw new IllegalDungeonFormatException("No '" +
                 ROOMS_MARKER + "' line where expected.");
         }
-
 
         try {
             // Instantiate and add first room (the entry).
@@ -79,19 +96,19 @@ public class Dungeon {
         } catch (Room.NoRoomException e) {  /* end of rooms */ }
 
         // Throw away Exits starter.
-        if (!s.nextLine().equals(EXITS_MARKER)) {
-            throw new IllegalDungeonFormatException("No '" +
-                EXITS_MARKER + "' line where expected.");
-        }
+        // if (!s.nextLine().equals(EXITS_MARKER)) {
+        //     throw new IllegalDungeonFormatException("No '" +
+        //         EXITS_MARKER + "' line where expected.");
+        // }
 
-        try {
-            // Instantiate exits.
-            while (true) {
-                // (Note that the Exit constructor takes care of adding itself
-                // to its source room.)
-                Exit exit = new Exit(s, this);
-            }
-        } catch (Exit.NoExitException e) {  /* end of exits */ }
+        // try {
+        //     // Instantiate exits.
+        //     while (true) {
+        //         // (Note that the Exit constructor takes care of adding itself
+        //         // to its source room.)
+        //         Exit exit = new Exit(s, this);
+        //     }
+        // } catch (Exit.NoExitException e) {  /* end of exits */ }
 
         s.close();
     }
@@ -100,6 +117,8 @@ public class Dungeon {
     // is used.
     private void init() {
         rooms = new Hashtable<String,Room>();
+        items = new Hashtable<String, Item>();  
+
     }
 
     /*
@@ -145,5 +164,8 @@ public class Dungeon {
 
     public Room getRoom(String roomName) {
         return rooms.get(roomName); 
+    }
+    public Item getItem(String itemName) {
+        return items.get(itemName);
     }
 }
