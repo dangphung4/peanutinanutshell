@@ -23,7 +23,7 @@ public class Interpreter {
         try {
             state = GameState.instance();
             if (args[0].endsWith(".zork")) {
-                state.initialize(new Dungeon(args[0]));
+                state.initialize(new Dungeon(args[0], true));
                 System.out.println("\nWelcome to " + 
                     state.getDungeon().getTitle() + "!");
             } else if (args[0].endsWith(".sav")) {

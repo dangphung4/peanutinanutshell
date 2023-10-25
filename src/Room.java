@@ -34,7 +34,7 @@ public class Room {
      *                                       dungeon file itself, detected when
      *                                       trying to read this room.
      */
-    Room(Scanner s) throws NoRoomException, Dungeon.IllegalDungeonFormatException {
+    Room(Scanner s, Dungeon d, Boolean initstate) throws NoRoomException, Dungeon.IllegalDungeonFormatException {
         init();
         name = s.nextLine();
         desc = "";
@@ -45,6 +45,23 @@ public class Room {
         }
 
         String lineOfDesc = s.nextLine();
+    
+        if (lineOfDesc.startsWith("Contents:")) {
+            lineOfDesc = lineOfDesc.substring("Contents:".length()).trim();
+            String[] itemNames = lineOfDesc.split(",");
+            for (String itemName : itemNames) {
+                Item item = d.getItem(itemName.trim());
+                if (item != null) {
+                    items.add(item);
+                    System.out.println("test item " + item);
+                }
+            }
+            // move to descriptions
+            lineOfDesc = s.nextLine();
+        }
+
+        
+
         while (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM) &&
                 !lineOfDesc.equals(Dungeon.ITEMS_MARKER) &&
                 !lineOfDesc.equals(Dungeon.TOP_LEVEL_DELIM)) {
@@ -52,20 +69,22 @@ public class Room {
             lineOfDesc = s.nextLine();
         }
 
-        if (lineOfDesc.equals(Dungeon.ITEMS_MARKER)) {
-            lineOfDesc = s.nextLine();
-            while (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM) &&
-                    !lineOfDesc.equals(Dungeon.TOP_LEVEL_DELIM)) {
-                try {
-                    Item item = new Item(s);
-                    items.add(item);
-                    lineOfDesc = s.nextLine();
-                } catch (Item.NoItemException e) {
-                    e.printStackTrace();
-                }
+        // if (lineOfDesc.equals(Dungeon.ITEMS_MARKER)) {
+        //     lineOfDesc = s.nextLine();
+        //     while (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM) &&
+        //             !lineOfDesc.equals(Dungeon.TOP_LEVEL_DELIM)) {
+        //         try {
+        //             Item item = new Item(s);
+        //             items.add(item);
+        //             lineOfDesc = s.nextLine();
+        //         } catch (Item.NoItemException e) {
+        //             e.printStackTrace();
+        //         }
 
-            }
-        }
+        //     }
+        // }
+
+    
 
         // throw away delimiter
         if (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM)) {
@@ -103,13 +122,14 @@ public class Room {
         }
     }
 
-    void restoreState(Scanner s) throws GameState.IllegalSaveFormatException {
+    void restoreState(Scanner s, Dungeon d) throws GameState.IllegalSaveFormatException {
 
         String line = s.nextLine();
         if (!line.startsWith("beenHere")) {
             throw new GameState.IllegalSaveFormatException("No beenHere.");
         }
         beenHere = Boolean.valueOf(line.substring(line.indexOf("=") + 1));
+        // check for contents ex: Contents: DrPepper,burrito - primary name. items in room at save time and not yet picked up in inventory
 
         s.nextLine(); // consume end-of-room delimiter
     }
@@ -119,11 +139,15 @@ public class Room {
         if (beenHere) {
             description = name;
         } else {
-            description = name + "\n" + desc + "\n";
+            description = name + "\n" + desc  + "\n";
+        }
+        for (Item item : items) {
+            description += "There is a " + item.getPrimaryName() + " here.\n"; // Assuming the Item class has a getName() method.
         }
         for (Exit exit : exits) {
             description += "\n" + exit.describe();
         }
+        
         beenHere = true;
         return description;
     }
@@ -141,16 +165,16 @@ public class Room {
         exits.add(exit);
     }
 
-    public void add(Item item) {
+    void add(Item item) {
         items.add(item);
     }
 
-    public Item remove(Item item) {
+    Item remove(Item item) {
         items.remove(item);
         return item;
     }
 
-    public Item getItemNamed(String name) {
+    Item getItemNamed(String name) {
         for (Item item : items) {
             if (item.goesByName(name)) {
                 return item;
@@ -159,7 +183,7 @@ public class Room {
         return null;
     }
 
-    public ArrayList<Item> getContents() {
+    ArrayList<Item> getContents() {
         return items;
     }
 }

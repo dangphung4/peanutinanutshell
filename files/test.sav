@@ -1,0 +1,25 @@
+Zork III save data
+Dungeon file: /home/stephen/teaching/240/zork/files/farmerv3.zork
+Room states:
+Stephen's office:
+beenHere=true
+---
+Room 054:
+beenHere=true
+Contents: DrPepper,burrito
+---
+Basement hallway:
+beenHere=true
+---
+Back hallway:
+beenHere=false
+Contents: chainsaw,magicWand
+---
+Rotunda:
+beenHere=true
+Contents: StarWarsToy
+---
+===
+Adventurer:
+Current room: Stephen's office
+Inventory: WawaTravelMug,donut

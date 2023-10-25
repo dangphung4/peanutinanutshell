@@ -23,12 +23,15 @@ public Item(Scanner s) throws NoItemException {
     String[] itemData = itemLine.split(",");
     
     primaryName = itemData[0].trim();
+    //debugging
     System.out.println(primaryName);
     
-    aliases = new ArrayList<>();
+    aliases = new ArrayList<String>();
+
     if (itemData.length > 1) {
         for (int i = 1; i < itemData.length; i++) {
             aliases.add(itemData[i].trim());
+            //debugging
             System.out.println(itemData[i].trim());
         }
     }

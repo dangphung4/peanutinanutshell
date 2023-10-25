@@ -16,7 +16,7 @@ public class GameState {
 
     static String DEFAULT_SAVE_FILE = "zork_save";
     static String SAVE_FILE_EXTENSION = ".sav";
-    static String SAVE_FILE_VERSION = "Zork II save data";
+    static String SAVE_FILE_VERSION = "Zork III save data";
 
     static String CURRENT_ROOM_LEADER = "Current room: ";
 
@@ -43,6 +43,7 @@ public class GameState {
             throw new IllegalSaveFormatException("Save file not compatible.");
         }
 
+        //read dungeon file
         String dungeonFileLine = s.nextLine();
 
         if (!dungeonFileLine.startsWith(Dungeon.FILENAME_LEADER)) {
@@ -50,9 +51,9 @@ public class GameState {
                 Dungeon.FILENAME_LEADER + 
                 "' after version indicator.");
         }
-
+        
         dungeon = new Dungeon(dungeonFileLine.substring(
-            Dungeon.FILENAME_LEADER.length()));
+            Dungeon.FILENAME_LEADER.length()),true);
         dungeon.restoreState(s);
 
         String currentRoomLine = s.nextLine();

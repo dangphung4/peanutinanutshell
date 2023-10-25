@@ -42,13 +42,14 @@ public class Dungeon {
         this.title = title;
         this.entry = entry;
         rooms = new Hashtable<String,Room>();
+        items = new Hashtable<String,Item>(); // added initialize items hastable
     }
 
     /**
      * Read from the .zork filename passed, and instantiate a Dungeon object
      * based on it.
      */
-    public Dungeon(String filename) throws FileNotFoundException,
+    public Dungeon(String filename, Boolean initstate) throws FileNotFoundException,
         IllegalDungeonFormatException {
 
         init();
@@ -86,29 +87,29 @@ public class Dungeon {
 
         try {
             // Instantiate and add first room (the entry).
-            entry = new Room(s);
+            entry = new Room(s,this, true);
             add(entry);
 
             // Instantiate and add other rooms.
             while (true) {
-                add(new Room(s));
+                add(new Room(s, this, true));
             }
         } catch (Room.NoRoomException e) {  /* end of rooms */ }
 
         // Throw away Exits starter.
-        // if (!s.nextLine().equals(EXITS_MARKER)) {
-        //     throw new IllegalDungeonFormatException("No '" +
-        //         EXITS_MARKER + "' line where expected.");
-        // }
+        if (!s.nextLine().equals(EXITS_MARKER)) {
+            throw new IllegalDungeonFormatException("No '" +
+                EXITS_MARKER + "' line where expected.");
+        }
 
-        // try {
-        //     // Instantiate exits.
-        //     while (true) {
-        //         // (Note that the Exit constructor takes care of adding itself
-        //         // to its source room.)
-        //         Exit exit = new Exit(s, this);
-        //     }
-        // } catch (Exit.NoExitException e) {  /* end of exits */ }
+        try {
+            // Instantiate exits.
+            while (true) {
+                // (Note that the Exit constructor takes care of adding itself
+                // to its source room.)
+                Exit exit = new Exit(s, this);
+            }
+        } catch (Exit.NoExitException e) {  /* end of exits */ }
 
         s.close();
     }
@@ -149,9 +150,13 @@ public class Dungeon {
 
         String roomName = s.nextLine();
         while (!roomName.equals(TOP_LEVEL_DELIM)) {
-            getRoom(roomName.substring(0,roomName.length()-1)).restoreState(s);
+            getRoom(roomName.substring(0,roomName.length()-1)).restoreState(s, this);
             roomName = s.nextLine();
         }
+        String adventurer = s.nextLine();
+        //check current room ex: Current room: Stephen's office
+
+        // add to inventory ex: Inventory: WawaTravelMug,donut
     }
 
     public Room getEntry() { return entry; }
