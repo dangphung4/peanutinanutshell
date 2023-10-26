@@ -8,7 +8,12 @@ public class Item {
     private Hashtable<String, String> messages;
     private ArrayList<String> aliases;
 
-    class NoItemException extends Exception {}
+    static class NoItemException extends Exception {
+          NoItemException(String e) {
+            super(e);
+        }
+    }
+    
 
 
 public Item(Scanner s) throws NoItemException {
@@ -16,7 +21,7 @@ public Item(Scanner s) throws NoItemException {
     
     // If the itemLine is TOP_LEVEL_DELIM, throw the exception
     if (itemLine.equals(Dungeon.TOP_LEVEL_DELIM)) {
-        throw new NoItemException();
+        throw new NoItemException("none items");
     }
     
     //split primary name and/or aliases
@@ -24,7 +29,7 @@ public Item(Scanner s) throws NoItemException {
     
     primaryName = itemData[0].trim();
     //debugging
-    System.out.println(primaryName);
+    // System.out.println(primaryName);
     
     aliases = new ArrayList<String>();
 
@@ -32,7 +37,7 @@ public Item(Scanner s) throws NoItemException {
         for (int i = 1; i < itemData.length; i++) {
             aliases.add(itemData[i].trim());
             //debugging
-            System.out.println(itemData[i].trim());
+            // System.out.println(itemData[i].trim());
         }
     }
     

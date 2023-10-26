@@ -87,12 +87,12 @@ public class Dungeon {
 
         try {
             // Instantiate and add first room (the entry).
-            entry = new Room(s,this, true);
+            entry = new Room(s,this, initstate);
             add(entry);
 
             // Instantiate and add other rooms.
             while (true) {
-                add(new Room(s, this, true));
+                add(new Room(s, this, initstate));
             }
         } catch (Room.NoRoomException e) {  /* end of rooms */ }
 
@@ -149,14 +149,17 @@ public class Dungeon {
         }
 
         String roomName = s.nextLine();
-        while (!roomName.equals(TOP_LEVEL_DELIM)) {
-            getRoom(roomName.substring(0,roomName.length()-1)).restoreState(s, this);
+        // System.out.println("dungeon restore" + roomName);
+        while (!roomName.equals("Adventurer:")) {
+            Room room = getRoom(roomName.substring(0, roomName.length() - 1));
+            if (room != null) {
+                room.restoreState(s, this);
+                // System.out.println("dnegon room name check" + room.getName());
+            }
             roomName = s.nextLine();
+            System.out.println(roomName + " dungeon debug");
         }
-        String adventurer = s.nextLine();
-        //check current room ex: Current room: Stephen's office
 
-        // add to inventory ex: Inventory: WawaTravelMug,donut
     }
 
     public Room getEntry() { return entry; }
@@ -173,4 +176,9 @@ public class Dungeon {
     public Item getItem(String itemName) {
         return items.get(itemName);
     }
+    public void addItem(Item item) {
+        items.put(item.getPrimaryName(), item);
+    }
+    
+
 }

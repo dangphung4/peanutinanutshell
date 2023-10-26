@@ -1,5 +1,40 @@
 James Farmer Hall
-Zork II
+Zork III
+===
+Items:
+magicWand
+5
+---
+beef
+5
+---
+chicken
+5
+---
+magicWand
+5
+---
+WawaTravelMug,mug
+10
+---
+DrPepper,can,soda
+10
+kick:The can skitters down the hallway.
+shake:A liquid fizzes menacingly inside the can.
+drink:Gulp, gulp -- that was GOOD!  *belch*
+---
+StarWarsToy,Yoda
+5
+touch:Yoda says, "Do, or do not! There is no try."
+break:Whoops!
+---
+chainsaw
+35
+---
+donut
+7
+eat:You feel mildly guilt-ridden.
+---
 ===
 Rooms:
 Rotunda
@@ -7,6 +42,7 @@ You are in a beautiful round entry chamber, with tall white pillars that
 seemingly reach to the skies. There is an elevator here.
 ---
 Basement hallway
+Contents: DrPepper
 A long, white hallway stretches to the east and west. It is cold here, and you
 can detect the faint smell of body odor. A vending machine hums softly in the
 corner.
@@ -15,6 +51,7 @@ Back hallway
 Comfortably cool, this hallway features stylish lines and cutting-edge decor.
 ---
 Stephen's office
+Contents: StarWarsToy,WawaTravelMug,donut,chicken,beef
 This is a cluttered office, with many geeky toys sprawling on a desk. There
 are posters of Dune, Star Wars, and UMW Women's Basketball on the walls.
 ---
@@ -28,6 +65,7 @@ merrily away at several of them. They look up and wave hello to you.
 The door locks behind you.
 ---
 Rotunda balcony
+Contents: chainsaw,magicWand
 You stand on a circular white balcony overlooking an entry hall.
 Columnar bannisters in ancient Grecian style stand between you and the
 precipice.
