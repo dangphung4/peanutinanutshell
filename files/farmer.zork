@@ -31,6 +31,21 @@ break:Whoops!
 chainsaw
 35
 ---
+lightsaber
+35
+---
+cloak
+35
+---
+monster cat
+35
+---
+stephen
+35
+---
+baby
+35
+---
 donut
 7
 eat:You feel mildly guilt-ridden.
@@ -42,7 +57,7 @@ You are in a beautiful round entry chamber, with tall white pillars that
 seemingly reach to the skies. There is an elevator here.
 ---
 Basement hallway
-Contents: DrPepper
+Contents: DrPepper,lightsaber
 A long, white hallway stretches to the east and west. It is cold here, and you
 can detect the faint smell of body odor. A vending machine hums softly in the
 corner.
@@ -65,7 +80,7 @@ merrily away at several of them. They look up and wave hello to you.
 The door locks behind you.
 ---
 Rotunda balcony
-Contents: chainsaw,magicWand
+Contents: chainsaw,magicWand,cloak,baby,stephen,monster cat
 You stand on a circular white balcony overlooking an entry hall.
 Columnar bannisters in ancient Grecian style stand between you and the
 precipice.
