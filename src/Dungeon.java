@@ -21,28 +21,27 @@ public class Dungeon {
     // Variables relating to dungeon file (.zork) storage.
     public static String ROOMS_MARKER = "Rooms:";
     public static String EXITS_MARKER = "Exits:";
-    
+
     // Variables relating to game state (.sav) storage.
     static String FILENAME_LEADER = "Dungeon file: ";
     static String ROOM_STATES_MARKER = "Room states:";
 
-    //marker for items
+    // marker for items
     public static String ITEMS_MARKER = "Items:";
-
 
     private String title;
     private Room entry;
-    private Hashtable<String,Room> rooms;
-    private Hashtable<String, Item> items;  // hashtable to store items
+    private Hashtable<String, Room> rooms;
+    private Hashtable<String, Item> items; // hashtable to store items
     private String filename;
 
     Dungeon(String title, Room entry) {
         init();
-        this.filename = null;    // null indicates not hydrated from file.
+        this.filename = null; // null indicates not hydrated from file.
         this.title = title;
         this.entry = entry;
-        rooms = new Hashtable<String,Room>();
-        items = new Hashtable<String,Item>(); // added initialize items hastable
+        rooms = new Hashtable<String, Room>();
+        items = new Hashtable<String, Item>(); // added initialize items hastable
     }
 
     /**
@@ -50,7 +49,7 @@ public class Dungeon {
      * based on it.
      */
     public Dungeon(String filename, Boolean initstate) throws FileNotFoundException,
-        IllegalDungeonFormatException {
+            IllegalDungeonFormatException {
 
         init();
         this.filename = filename;
@@ -58,48 +57,49 @@ public class Dungeon {
         Scanner s = new Scanner(new FileReader(filename));
         title = s.nextLine();
 
-        s.nextLine();   // Throw away version indicator.
+        s.nextLine(); // Throw away version indicator.
 
         // Throw away delimiter.
         if (!s.nextLine().equals(TOP_LEVEL_DELIM)) {
             throw new IllegalDungeonFormatException("No '" +
-                TOP_LEVEL_DELIM + "' after version indicator.");
+                    TOP_LEVEL_DELIM + "' after version indicator.");
         }
 
         // Read items
         if (!s.nextLine().equals(ITEMS_MARKER)) {
             throw new IllegalDungeonFormatException("No '" +
-                ITEMS_MARKER + "' line where expected.");
+                    ITEMS_MARKER + "' line where expected.");
         }
         try {
             while (true) {
                 Item item = new Item(s);
                 items.put(item.getPrimaryName(), item);
             }
-        } catch (Item.NoItemException e) { /* end of items */ }
-
+        } catch (Item.NoItemException e) {
+            /* end of items */ }
 
         // Throw away Rooms starter.
         if (!s.nextLine().equals(ROOMS_MARKER)) {
             throw new IllegalDungeonFormatException("No '" +
-                ROOMS_MARKER + "' line where expected.");
+                    ROOMS_MARKER + "' line where expected.");
         }
 
         try {
             // Instantiate and add first room (the entry).
-            entry = new Room(s,this, initstate);
+            entry = new Room(s, this, initstate);
             add(entry);
 
             // Instantiate and add other rooms.
             while (true) {
                 add(new Room(s, this, initstate));
             }
-        } catch (Room.NoRoomException e) {  /* end of rooms */ }
+        } catch (Room.NoRoomException e) {
+            /* end of rooms */ }
 
         // Throw away Exits starter.
         if (!s.nextLine().equals(EXITS_MARKER)) {
             throw new IllegalDungeonFormatException("No '" +
-                EXITS_MARKER + "' line where expected.");
+                    EXITS_MARKER + "' line where expected.");
         }
 
         try {
@@ -109,16 +109,17 @@ public class Dungeon {
                 // to its source room.)
                 Exit exit = new Exit(s, this);
             }
-        } catch (Exit.NoExitException e) {  /* end of exits */ }
+        } catch (Exit.NoExitException e) {
+            /* end of exits */ }
 
         s.close();
     }
-    
+
     // Common object initialization tasks, regardless of which constructor
     // is used.
     private void init() {
-        rooms = new Hashtable<String,Room>();
-        items = new Hashtable<String, Item>();  
+        rooms = new Hashtable<String, Room>();
+        items = new Hashtable<String, Item>();
 
     }
 
@@ -142,10 +143,10 @@ public class Dungeon {
     void restoreState(Scanner s) throws GameState.IllegalSaveFormatException {
 
         // Note: the filename has already been read at this point.
-        
+
         if (!s.nextLine().equals(ROOM_STATES_MARKER)) {
             throw new GameState.IllegalSaveFormatException("No '" +
-                ROOM_STATES_MARKER + "' after dungeon filename in save file.");
+                    ROOM_STATES_MARKER + "' after dungeon filename in save file.");
         }
 
         String roomName = s.nextLine();
@@ -162,23 +163,32 @@ public class Dungeon {
 
     }
 
-    public Room getEntry() { return entry; }
+    public Room getEntry() {
+        return entry;
+    }
 
-    public String getTitle() { return title; }
+    public String getTitle() {
+        return title;
+    }
 
-    public String getFilename() { return filename; }
+    public String getFilename() {
+        return filename;
+    }
 
-    public void add(Room room) { rooms.put(room.getName(), room); }
+    public void add(Room room) {
+        rooms.put(room.getName(), room);
+    }
 
     public Room getRoom(String roomName) {
-        return rooms.get(roomName); 
+        return rooms.get(roomName);
     }
+
     public Item getItem(String itemName) {
         return items.get(itemName);
     }
+
     public void addItem(Item item) {
         items.put(item.getPrimaryName(), item);
     }
-    
 
 }

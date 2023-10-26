@@ -53,15 +53,15 @@ public class GameState {
                     Dungeon.FILENAME_LEADER +
                     "' after version indicator.");
         }
-        //dungeon and read rooms as well, should eat ====
+        // dungeon and read rooms as well, should eat ====
         dungeon = new Dungeon(dungeonFileLine.substring(
                 Dungeon.FILENAME_LEADER.length()), false);
         dungeon.restoreState(s);
 
-        //skip adventurer
+        // skip adventurer
         // String adventTEST = s.nextLine();
         // System.out.println("Adventurer" + adventTEST);
-        
+
         String currentRoomLine = s.nextLine();
         System.out.println(currentRoomLine + " GAMESTAE CURRNET ROOM LINE");
         adventurersCurrentRoom = dungeon.getRoom(
