@@ -73,7 +73,7 @@ public class Item {
             String hur = test.nextElement();
             System.out.println(hur + messages.get(hur));
        }*/
-      if(!messages.get(verb).equals("")) {
+      if(messages.get(verb) != null) {
          return messages.get(verb);
        } 
         return null;

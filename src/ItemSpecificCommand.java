@@ -12,13 +12,13 @@ class ItemSpecificCommand extends Command {
     String execute() {
         try {
             Item item = GameState.instance().getItemInVicinityNamed(noun);
-            if(!item.getMessageForVerb(this.verb).equals("")) {
-                return item.getMessageForVerb(this.verb);
+            if(item.getMessageForVerb(this.verb) != null) {
+                return item.getMessageForVerb(this.verb) + "\n";
             } else {
-                return "You can't do that.";
+                return "You can't " + verb + " the " + item.getPrimaryName() + ".\n";
             }
         } catch(Item.NoItemException nie) {
-            return "Item not found";
+            return "Item not found. \n";
         }
 
     }
