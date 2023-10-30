@@ -12,9 +12,9 @@ class TakeCommand extends Command {
         if(item != null) {
             GameState.instance().getAdventurersCurrentRoom().remove(item);
             GameState.instance().addToInventory(item);
-            return itemName + " added to inventory";
+            return itemName + " added to inventory. \n";
         }
 
-        return "Item not found";
+        return "Item not found. \n";
     }
 }

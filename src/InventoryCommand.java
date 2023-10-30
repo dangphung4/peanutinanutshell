@@ -7,7 +7,7 @@ class InventoryCommand extends Command {
             }
             return out.substring(0, out.length() - 1);
         } else {
-            return "There is nothing in your inventory";
+            return "There is nothing in your inventory. \n";
         }
     }
 }

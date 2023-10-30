@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
-import java.util.Enumeration;
 
 public class Item {
     private String primaryName;
@@ -68,14 +67,9 @@ public class Item {
     }
 
     public String getMessageForVerb(String verb) {
-      /* Enumeration<String> test = messages.keys();
-       while(test.hasMoreElements()) {
-            String hur = test.nextElement();
-            System.out.println(hur + messages.get(hur));
-       }*/
-      if(messages.get(verb) != null) {
-         return messages.get(verb);
-       } 
+    if(messages.get(verb) != null) {
+        return messages.get(verb);
+    } 
         return null;
     }
 

@@ -10,9 +10,9 @@ class SaveCommand extends Command {
     String execute() {
         try {
             GameState.instance().store(this.saveFileName);
-            return "Saved to " + this.saveFileName + ".sav";
+            return "Saved to " + this.saveFileName + ".sav \n";
         } catch(IOException ioe) {
-            return "Couldn't save";
+            return "Couldn't save. \n";
         }
     }
 }

@@ -10,9 +10,9 @@ class DropCommand extends Command {
             Item item = GameState.instance().getItemFromInventoryNamed(this.itemName);
             GameState.instance().getAdventurersCurrentRoom().add(item);
             GameState.instance().removeFromInventory(item);
-            return itemName + " dropped";
+            return itemName + " dropped. \n";
         } catch(Item.NoItemException nie) {
-            return "Item not found in inventory";
+            return "Item not found in inventory. \n";
         }
     }
 }

@@ -6,6 +6,6 @@ class UnknownCommand extends Command {
     }
 
     String execute() {
-        return bogusCommand + "is not a valid command";
+        return bogusCommand + " is not a valid command. \n";
     }
 }

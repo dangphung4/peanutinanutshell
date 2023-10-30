@@ -32,9 +32,11 @@ public class CommandFactory {
             return new TakeCommand(splitCommand[1]);
         } else if(splitCommand[0].equals("i") || splitCommand[0].equals("inventory")) {
             return new InventoryCommand();
-        } 
+        } else if(splitCommand.length == 2) { 
         //still need to instantiate unknowncommand
-        return new ItemSpecificCommand(splitCommand[0], splitCommand[1]);
+            return new ItemSpecificCommand(splitCommand[0], splitCommand[1]);
+        }
+        return new UnknownCommand(splitCommand[0]);
     }
 
 }
