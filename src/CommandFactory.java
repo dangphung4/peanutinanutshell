@@ -23,7 +23,6 @@ public class CommandFactory {
         if (MOVEMENT_COMMANDS.contains(command)) { //there's no need to use the split command if the command is just a direction
             return new MovementCommand(command);
         } else if(splitCommand[0].equals("drop")) {
-            // For now, only one type of command object, to move and to save.
             return new DropCommand(splitCommand[1]);
         } else if(splitCommand[0].equals("save")) {
             
@@ -33,9 +32,9 @@ public class CommandFactory {
             return new TakeCommand(splitCommand[1]);
         } else if(splitCommand[0].equals("i") || splitCommand[0].equals("inventory")) {
             return new InventoryCommand();
-        }
-        
-        return null;
+        } 
+        //still need to instantiate unknowncommand
+        return new ItemSpecificCommand(splitCommand[0], splitCommand[1]);
     }
 
 }
