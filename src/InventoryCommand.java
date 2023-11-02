@@ -5,7 +5,7 @@ class InventoryCommand extends Command {
             for(Item item: GameState.instance().getInventory()) {
                 out += item.getPrimaryName() + "\n";
             }
-            return out.substring(0, out.length() - 1);
+            return out.substring(0, out.length() - 1) + " \n";
         } else {
             return "There is nothing in your inventory. \n";
         }
