@@ -30,6 +30,8 @@ public class CommandFactory {
         } else if(splitCommand[0].equals("take")) {
         
             return new TakeCommand(splitCommand[1]);
+        } else if(splitCommand[0].equals("look")) {  
+            return new LookCommand();
         } else if(splitCommand[0].equals("i") || splitCommand[0].equals("inventory")) {
             return new InventoryCommand();
         } else if(splitCommand.length == 2) { 

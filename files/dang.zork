@@ -1,0 +1,257 @@
+SillySnackland
+Zork III
+===
+Items:
+GooeyGumdropSaber,saber
+15
+examine:This shimmering saber is crafted from the stickiest gumdrops, with a marshmallow as the hilt.
+swing:You try to swing the saber, but it playfully sticks to your hand. Uh-oh!
+---
+JellybeanJavelin,javelin
+12
+examine:A vibrant weapon with a licorice stick shaft and a pointy jellybean tip.
+throw:The javelin wobbles through the air and plops into a pudding puddle. Oops!
+---
+CrispyCookieShield,shield
+15
+examine:This round shield is composed of crunchy cookies, with a grip made of string licorice.
+block:The CrispyCookieShield miraculously deflects a barrage of bouncing brownies!
+---
+FizzyPopPotion,potion
+5
+examine:This potion bubbles with giggles and tastes like rainbow sherbet soda.
+drink:You gulp down the potion and can't stop burping sparkles. Excuse you!
+---
+PlatinumPancake,pancake
+10
+examine:This exquisite pancake glistens with platinum syrup and sprinkles.
+---
+WackyVeggieEgg,GreenEgg
+11
+examine:This peculiar egg is a bright green, and it squirms slightly. Veggies... or something else?
+---
+ZanyMeatballEgg,RedEgg
+5
+examine:This comical egg is a lively red, made from layers of ticklish meatballs.
+---
+NuggetNestlingEgg,YellowEgg
+2
+examine:This egg is golden like crispy chicken nuggets and hums a silly tune.
+---
+CottonCandyCloud,cloud
+10
+examine:A fluffy, pink cloud of cotton candy floating playfully in the air.
+touch:The CottonCandyCloud sticks to your fingers, leaving a sugary residue.
+---
+ChocoChalice,chalice
+10
+examine:A goblet carved from the finest chocolate, filled to the brim with marshmallow fluff.
+drink:You take a sip and the room spins as you're overwhelmed by the sweetness.
+---
+LicoriceLance,lance
+15
+examine:A long, flexible lance made entirely of twisted licorice strands.
+swing:You swing the lance and it wiggles in a comical fashion.
+---
+GummyBearGrenade,grenade
+10
+examine:A squishy gummy bear filled with fizzy pop rocks.
+throw:You throw the GummyBearGrenade and it explodes in a shower of sparkles and confetti.
+---
+===
+Rooms:
+HotdogHilarity
+Contents: JellybeanJavelin,CottonCandyCloud
+You find yourself in a town constructed entirely of wiggly hot dogs. Sausage skyscrapers sway above, and streets are squishy with buns.
+---
+CondimentCarnival
+Contents: GooeyGumdropSaber,CrispyCookieShield,ChocoChalice
+This enormous, colorful structure stretches for miles, crafted from ketchup, mustard, mayo, and relish. A true condiment fiesta!
+---
+BurgerBonanza
+Contents: LicoriceLance
+Gigantic burgers and mountainous fries cover this chaotic battlefield. The air smells irresistibly greasy and delightful.
+---
+PizzaPlayhouse
+Contents: ZanyMeatballEgg,GummyBearGrenade
+This joyous palace is crafted from pizza slices stacked together, forming a cheesy and wacky structure.
+---
+DessertDunes
+Contents: PlatinumPancake,WackyVeggieEgg,NuggetNestlingEgg
+Endless dunes made of powdered sugar and rivers of flowing fudge create this whimsical desert. Cacti crafted from candy canes dot the landscape.
+---
+TacoTerritory
+Contents: FizzyPopPotion
+Massive taco shells lie scattered, half-buried in a guacamole ground, remnants of a once towering guac-wall.
+---
+North KetchupKartway
+Contents: JellybeanJavelin,GummyBearGrenade
+You're on a track paved with exploding ketchup packets. Squelching sounds accompany each giggly step.
+---
+SodaSplash
+Contents: FizzyPopPotion,CottonCandyCloud
+A humongous spring overflows with all sorts of sodas, splashing three stories high with fountains made of cotton candy.
+---
+South MustardMeadow
+Contents: ChocoChalice
+A long road stretches north and south, paved entirely in squishy mustard, with mustard flowers blooming on the sides.
+---
+MacaroonMountain
+Contents: PlatinumPancake,CottonCandyCloud
+This sweet and treacherous path climbs through sugary foothills and thick forests of cotton candy clouds.
+---
+SyrupSanctuary
+Contents: LicoriceLance,NuggetNestlingEgg
+Two long parapets made of waffles dripping in syrup stand guard at the entrance to the Macaroon Mountain.
+---
+CakeCastle
+Contents: GooeyGumdropSaber,JellybeanJavelin
+This breathtaking castle consists only of a cluster of seven towering cakes, bouncing slightly with each giggle.
+---
+East ChocolateChase
+Contents: WackyVeggieEgg,ZanyMeatballEgg
+The sounds of the Chocolate River overwhelm you as you chase along this deliciously sweet road.
+---
+West VanillaVoyage
+Contents: GummyBearGrenade,FizzyPopPotion
+You prance over a road through green, minty pastures.
+---
+RiverbunRetreat
+Contents: PlatinumPancake,ChocoChalice
+You approach a bouncy castle made of cinnamon buns, bordered by rivers of icing.
+---
+CasterlyCandyCove
+Contents: CrispyCookieShield,LicoriceLance
+This fortress is carved out of a colossal rock candy beside the Soda Sea.
+---
+King's LandingLollipop
+Contents: FizzyPopPotion,GummyBearGrenade
+This extraordinary city is bustling, filled with lollipop lampposts and gumdrop houses.
+---
+HarrenhalibutHut
+Contents: WackyVeggieEgg,CottonCandyCloud
+A sprawling, nearly abandoned castle made of fish sticks and tartar sauce has five towers of dizzying, wobbling heights.
+---
+===
+Exits:
+HotdogHilarity
+s
+North KetchupKartway
+---
+North KetchupKartway
+n
+HotdogHilarity
+---
+North KetchupKartway
+s
+SodaSplash
+---
+SodaSplash
+n
+North KetchupKartway
+---
+South MustardMeadow
+n
+SodaSplash
+---
+SodaSplash
+s
+South MustardMeadow
+---
+MacaroonMountain
+w
+SodaSplash
+---
+SodaSplash
+e
+MacaroonMountain
+---
+MacaroonMountain
+e
+SyrupSanctuary
+---
+SyrupSanctuary
+w
+MacaroonMountain
+---
+CakeCastle
+s
+SyrupSanctuary
+---
+SyrupSanctuary
+n
+CakeCastle
+---
+SodaSplash
+w
+East ChocolateChase
+---
+East ChocolateChase
+e
+SodaSplash
+---
+East ChocolateChase
+w
+RiverbunRetreat
+---
+RiverbunRetreat
+e
+East ChocolateChase
+---
+West VanillaVoyage
+e
+RiverbunRetreat
+---
+RiverbunRetreat
+w
+West VanillaVoyage
+---
+West VanillaVoyage
+w
+CasterlyCandyCove
+---
+CasterlyCandyCove
+e
+West VanillaVoyage
+---
+HarrenhalibutHut
+n
+South MustardMeadow
+---
+South MustardMeadow
+s
+HarrenhalibutHut
+---
+King's LandingLollipop
+n
+HarrenhalibutHut
+---
+HarrenhalibutHut
+s
+King's LandingLollipop
+---
+HotdogHilarity
+n
+CondimentCarnival
+---
+CondimentCarnival
+s
+HotdogHilarity
+---
+King's LandingLollipop
+e
+PizzaPlayhouse
+---
+PizzaPlayhouse
+w
+King's LandingLollipop
+---
+PizzaPlayhouse
+e
+DessertDunes
+---
+DessertDunes
+w
+PizzaPlayhouse
+---
+===

@@ -172,21 +172,21 @@ public class Room {
         }
     }
 
-    public String describe() {
+    public String describe(boolean fulldescription) {
         String description;
-        if (beenHere) {
+        if (beenHere && !fulldescription) {
             description = name;
         } else {
-            description = name + "\n" + desc + "\n";
+            description = name + "\n" + desc;
         }
         for (Item item : items) {
-            description += "There is a " + item.getPrimaryName() + " here.\n"; // Assuming the Item class has a
-                                                                               // getName() method.
+            description += "\nThere is a " + item.getPrimaryName() + " here."; 
         }
+        description += "\n";
         for (Exit exit : exits) {
             description += "\n" + exit.describe();
         }
-
+        description += "\n";
         beenHere = true;
         return description;
     }

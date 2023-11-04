@@ -34,7 +34,7 @@ public class Interpreter {
             }
 
             System.out.print("\n" +
-                    state.getAdventurersCurrentRoom().describe() + "\n");
+                    state.getAdventurersCurrentRoom().describe(false));
 
             command = promptUser(commandLine);
 
