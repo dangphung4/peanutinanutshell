@@ -1,0 +1,171 @@
+Dungeon of Forgotten memories
+Zork III
+===
+Items:
+Emerald
+5
+examine:A shiny deep green stone that should be worth alot should you sell it.
+touch:it smooth
+---
+Key
+4
+examine:a small seemingly brass key that has no lock that it goes to.
+turn:Nothing happened.
+---
+GoldCoin,Coin,Token,ChuckECheeseToken
+2
+examine:A small coin that doesnt quite seem to be gold, and has an image of a rats face with a baseball cap on with the text "IN PIZZA WE TRUST" below it.
+touch:it smol
+flip:It lands on heads.
+---
+Torch
+15
+examine:A stick with cloth wrapped around the end that is on fire.
+touch:it hot
+raise:You light up the room with the torch.
+---
+Spear
+12
+examine:a long stick with a metal triangle at the end
+touch:it pointy
+raise:You raise the spear
+---
+GameBoyAdvance,GameBoy
+4
+examine:A handheld device that looks like it was once used with some kind of cartridge.
+open:There is a cavity where it appears batteries would go.
+---
+ADHDMeds,Meds,Ritalin
+6
+examine:A small white bottle with small white tablets inside.
+eat:You calm now. brain focus
+---
+MascotCostume
+30
+examine:A large, sweaty suit that looks like you could fit inside.  It also bears resemblance to a famous childs mouse mascot that encourages underage gambling.
+open:a wave of stink washes over you, it smells like someone might have died in there
+wear:As you attempt to slide yourself into the costume, you get blocked by something, something that should not be in there. Perhaps... no you dont want to think about that, and you hop out.
+---
+===
+Rooms:
+Entrance
+Contents: Torch
+A mossy door that is sealed shut, and uneven stones on the ground.
+---
+Gold Room
+Contents: GoldCoin
+A room gilded in gold witha podium in the center.
+---
+White Room
+Contents: Spear
+A room that has no features that you can interpret, although you know something is lurking.
+---
+Red Room
+A red room, almost exactly like the white room, except for the fact that its red.
+---
+Door Room
+Contents: Key
+A room filled with doors with no keyholes, and none of which will open.
+---
+Green Room
+Contents: Emerald
+A room with a couch, a desk with a mirror, some plants, and a bowl of M&M's with all the yellow ones picked out.
+---
+Doctor's Office
+Contents: ADHDMeds
+Just a Doctors office with a hole in the ceiling, a flight of stairs going down and a single door to the north with "BACKSTAGE" written on it.
+---
+Play Room
+Contents: GameBoyAdvanced
+A room that is very colorful and seems to be made out of those popular building bricks you used to play with, and theres loads of loose ones all over the floor aswell.
+---
+Black Room
+A room where you cant see anything except for a light coming from up a flight of stairs, a light from down a flight of stairs, and a light from a doorway. It seems as though the very room asborbs all the light entering it.
+---
+Arcade
+Contents: MascotCostume
+A room filled with arcade cabinets that would entertain young children, and a stage in the back of the room with a door just off to the side.
+---
+===
+Exits:
+Entrance
+n
+Gold Room
+---
+Gold Room
+s
+Entrance
+---
+Gold Room
+w
+White Room
+---
+White Room
+e
+Gold Room
+---
+Gold Room
+e
+Play Room
+---
+Play Room
+w
+Gold Room
+---
+White Room
+n
+Red Room
+---
+Red Room
+s
+White Room
+---
+Play Room
+n
+Black Room
+---
+Black Room
+s
+Play Room
+---
+Red Room
+u
+Door Room
+---
+Door Room
+d
+Red Room
+---
+Door Room
+u
+Green Room
+---
+Green Room
+d
+Door Room
+---
+Red Room
+d
+Doctor's Office
+---
+Doctor's Office
+n
+Arcade
+---
+Arcade
+n
+Doctor's Office
+---
+Black Room
+u
+Doctor's Office
+---
+Black Room
+d
+Arcade
+---
+Arcade
+u
+Black Room
+---
+===
