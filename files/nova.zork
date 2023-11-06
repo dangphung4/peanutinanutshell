@@ -40,7 +40,7 @@ ADHDMeds,Meds,Ritalin
 examine:A small white bottle with small white tablets inside.
 eat:You calm now. brain focus
 ---
-MascotCostume
+MascotCostume,RatCostume,CuckECheeseCostume
 30
 examine:A large, sweaty suit that looks like you could fit inside.  It also bears resemblance to a famous childs mouse mascot that encourages underage gambling.
 open:a wave of stink washes over you, it smells like someone might have died in there
@@ -76,7 +76,7 @@ Contents: ADHDMeds
 Just a Doctors office with a hole in the ceiling, a flight of stairs going down and a single door to the north with "BACKSTAGE" written on it.
 ---
 Play Room
-Contents: GameBoyAdvanced
+Contents: GameBoyAdvance
 A room that is very colorful and seems to be made out of those popular building bricks you used to play with, and theres loads of loose ones all over the floor aswell.
 ---
 Black Room
