@@ -1,0 +1,166 @@
+Castle
+Zork III
+===
+Items:
+knightArmor
+20
+equip:You now possess great protection.
+throw:You throw each piece of armor across the room.
+---
+bow
+3
+use:An arrow glides across the room.
+smash:The bow is nothing but a mangled mess.
+---
+vialOfBlood
+1
+drink:You suddenly crave more blood.
+toss:The vial breaks and a ghostly spirit emerges.
+---
+sword
+10
+swing:The sword swiftly slices the air.
+swallow:You successfully swallow the sword and let out a large belch.
+sharpen:The sword is now significantly stronger.
+---
+healthPotion
+3
+drink:Your health magically goes up.
+pour:The potion is poured on the ground leaving a mess.
+---
+magicStaff
+2
+castSpell:A zap from the wand zips across the room.
+transform:You zap yourself and turn into a werewolf.
+heal:Your health is restored.
+invisible:You are now temporarily invisible.
+summon:A friendly creature is summoned that follows you around.
+---
+shield
+5
+block:The shield covers you from any incoming attacks, however your attacks are less accurate.
+lower:The shield is lowered giving you less protection but more accurate attacks.
+---
+torch
+3
+illuminate:The room is significantly more lightened, however you are now visible.
+blowOut:The room goes back to pure darkness.
+---
+===
+Rooms:
+DiningRoom
+Contents: torch
+A large table is present with every food imaginable.  Golden chandaliers
+light up the room
+---
+Armory
+Contents: shield,knightArmor,sword,bow
+Rows upon rows of knight armor line up the walls, each
+with weapons by their sides.
+---
+TortureChamber
+Contents: vialOfBlood
+A creepy chamber with skeletons littering the floor.
+---
+ThroneRoom
+A room made out of pure gold and a silver throne placed
+in the center.
+---
+Library
+A room with an endless amount of books that provide
+information on any topic imaginable.
+---
+AlchemyRoom
+Contents: healthPotion,magicStaff
+A room used to brew different kinds of spells and potions.
+---
+Treasury
+Contains a massive amount of gold and silver.
+---
+ArmoryWorkshop
+Many workbenches, anvils and furnaces are in this room, 
+primarily used to repair weapons and armor.
+---
+ArtRoom
+A room with a varying amount of art from different time periods,
+from Mona Lisa to Starry Night.
+---
+CreatureRoom
+Different creatures in cages roar at you and attempt to escape.
+Each creature looks terrifying and alien.
+---
+===
+Exits:
+DiningRoom
+u
+ThroneRoom
+---
+ThroneRoom
+d
+DiningRoom
+---
+DiningRoom
+d
+TortureChamber
+---
+TortureChamber
+u
+DiningRoom
+---
+DiningRoom
+e
+Armory
+---
+Armory
+w
+DiningRoom
+---
+Armory
+e
+Library
+---
+Library
+w
+Armory
+---
+Armory
+s
+ArmoryWorkshop
+---
+ArmoryWorkshop
+n
+Armory
+---
+Library
+n
+AlchemyRoom
+---
+AlchemyRoom
+s
+Library
+---
+AlchemyRoom 
+d
+Treasury
+---
+Treasury
+u
+AlchemyRoom
+---
+Treasury
+d
+CreatureRoom
+---
+CreatureRoom
+u
+Treasury
+---
+CreatureRoom
+e
+ArtRoom
+---
+ArtRoom
+w
+CreatureRoom
+---
+===
