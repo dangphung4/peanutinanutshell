@@ -40,7 +40,6 @@ public class GameState {
             IllegalSaveFormatException, Dungeon.IllegalDungeonFormatException {
 
         Scanner s = new Scanner(new FileReader(filename));
-
         if (!s.nextLine().equals(SAVE_FILE_VERSION)) {
             throw new IllegalSaveFormatException("Save file not compatible.");
         }

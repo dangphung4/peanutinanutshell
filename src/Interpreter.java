@@ -1,4 +1,5 @@
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Interpreter {
@@ -7,7 +8,7 @@ public class Interpreter {
                                     // singleton
 
     public static String USAGE_MSG = "Usage: Interpreter dungeonFile.zork|saveFile.sav.";
-
+    public static String FILE_NOT_FOUND_MSG = "Please enter a valid file path and file name.";
     public static void main(String args[]) {
 
         if (args.length < 1) {
@@ -47,7 +48,9 @@ public class Interpreter {
             }
 
             System.out.println("Bye!");
-
+        
+        } catch (FileNotFoundException fnfe) {
+            System.out.println(FILE_NOT_FOUND_MSG);
         } catch (Exception e) {
             e.printStackTrace();
         }

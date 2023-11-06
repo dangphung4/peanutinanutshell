@@ -30,13 +30,13 @@ public class Exit {
         Dungeon.IllegalDungeonFormatException {
 
         init();
-        String srcTitle = s.nextLine();
+        String srcTitle = s.nextLine().trim();
         if (srcTitle.equals(Dungeon.TOP_LEVEL_DELIM)) {
             throw new NoExitException();
         }
         src = d.getRoom(srcTitle);
-        dir = s.nextLine();
-        dest = d.getRoom(s.nextLine());
+        dir = s.nextLine().trim();
+        dest = d.getRoom(s.nextLine().trim());
         
         // I'm an Exit object. Add me as an exit to my source Room.
         src.addExit(this);
