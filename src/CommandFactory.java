@@ -18,27 +18,31 @@ public class CommandFactory {
     private CommandFactory() {
     }
 
-    public Command parse(String command) {
-        String[] splitCommand = command.split(" ");
-        if (MOVEMENT_COMMANDS.contains(command)) { //there's no need to use the split command if the command is just a direction
-            return new MovementCommand(command);
-        } else if(splitCommand[0].equals("drop")) {
-            return new DropCommand(splitCommand[1]);
-        } else if(splitCommand[0].equals("save")) {
-            
-            return new SaveCommand(splitCommand[1]);
-        } else if(splitCommand[0].equals("take")) {
-        
-            return new TakeCommand(splitCommand[1]);
-        } else if(splitCommand[0].equals("look")) {  
-            return new LookCommand();
-        } else if(splitCommand[0].equals("i") || splitCommand[0].equals("inventory")) {
-            return new InventoryCommand();
-        } else if(splitCommand.length == 2) { 
-        //still need to instantiate unknowncommand
-            return new ItemSpecificCommand(splitCommand[0], splitCommand[1]);
-        }
-        return new UnknownCommand(splitCommand[0]);
-    }
+      public Command parse(String command) {
+        String[] splitCommand = command.split("\\s+"); // Split the command by whitespace
+        String cmd = splitCommand.length > 0 ? splitCommand[0] : "";
 
+        if (MOVEMENT_COMMANDS.contains(cmd)) { // If it's a movement command
+            return new MovementCommand(cmd);
+        } else if (cmd.equals("drop") && splitCommand.length > 1) {
+            return new DropCommand(splitCommand[1]);
+        } else if (cmd.equals("save") && splitCommand.length > 1) {
+            return new SaveCommand(splitCommand[1]);
+        } else if (cmd.equals("take")) {
+            // If 'take' is used without specifying an item, handle accordingly
+            String itemName = splitCommand.length > 1 ? splitCommand[1] : null; 
+            return new TakeCommand(itemName);
+        } else if (cmd.equals("look")) {
+            return new LookCommand();
+        } else if (cmd.equals("i") || cmd.equals("inventory")) {
+            return new InventoryCommand();
+        } else if (splitCommand.length == 2) {
+            // This is a catch-all for other two-word commands not explicitly checked above
+            return new ItemSpecificCommand(splitCommand[0], splitCommand[1]);
+        } else {
+            // For one-word commands or unknown commands, return UnknownCommand
+            return new UnknownCommand(cmd);
+        }
+    }
 }
+
