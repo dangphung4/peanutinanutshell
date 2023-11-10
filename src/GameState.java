@@ -62,7 +62,7 @@ public class GameState {
         // System.out.println("Adventurer" + adventTEST);
 
         String currentRoomLine = s.nextLine();
-        System.out.println(currentRoomLine + " GAMESTAE CURRNET ROOM LINE");
+        
         adventurersCurrentRoom = dungeon.getRoom(
                 currentRoomLine.substring(CURRENT_ROOM_LEADER.length()));
 
@@ -85,7 +85,7 @@ public class GameState {
 
     void store(String saveName) throws IOException {
         String filename = saveName + SAVE_FILE_EXTENSION;
-        PrintWriter w = new PrintWriter(new FileWriter(filename));
+        PrintWriter w = new PrintWriter(new FileWriter("../files/" + filename));
         w.println(SAVE_FILE_VERSION);
         dungeon.storeState(w);
 
@@ -101,8 +101,7 @@ public class GameState {
                 w.print(",");
             }
         }
-
-        w.close();
+       w.close();
     }
 
     void initialize(Dungeon dungeon) {

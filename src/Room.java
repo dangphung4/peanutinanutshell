@@ -50,6 +50,7 @@ public class Room {
             String[] itemNames = lineOfDesc.split(",");
             for (String itemName : itemNames) {
                 Item item = d.getItem(itemName.trim());
+                System.out.println("ITEM: " + item);
                 if (item != null) {
                     items.add(item);
                     // System.out.println("test item " + item);
@@ -137,24 +138,23 @@ public class Room {
 
     void restoreState(Scanner s, Dungeon d) throws GameState.IllegalSaveFormatException {
         String line = s.nextLine();
-
+        
         if (!line.startsWith("beenHere")) {
             throw new GameState.IllegalSaveFormatException("No beenHere.");
         }
-
+        
         beenHere = Boolean.valueOf(line.substring(line.indexOf("=") + 1));
-        System.out.println(beenHere + "beenhere value");
-
+        
         // Clear items list before restoring the state.
         items.clear();
-
+        
         // check for contents ex: Contents: DrPepper,burrito - primary name. items in
         // room at save time and not yet picked up in inventory
         line = s.nextLine();
+        
         if (line.startsWith("Contents:")) {
             String contentsLine = line.substring(line.indexOf(":") + 1).trim();
             String[] itemNames = contentsLine.split(",");
-
             for (String itemName : itemNames) {
                 Item item = d.getItem(itemName.trim());
                 if (item != null) {
@@ -167,7 +167,7 @@ public class Room {
 
         // If the next line is the '---', just skip it
         if (line.equals("---")) {
-            s.nextLine(); // This reads and discards the '---' line
+             // This reads and discards the '---' line
         }
     }
 

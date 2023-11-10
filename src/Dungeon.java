@@ -152,13 +152,15 @@ public class Dungeon {
         String roomName = s.nextLine();
         // System.out.println("dungeon restore" + roomName);
         while (!roomName.equals("Adventurer:")) {
-            Room room = getRoom(roomName.substring(0, roomName.length() - 1));
+            Room room = this.getRoom(roomName.substring(0, roomName.length() - 1));
+            
             if (room != null) {
+                
                 room.restoreState(s, this);
                 // System.out.println("dnegon room name check" + room.getName());
             }
             roomName = s.nextLine();
-            System.out.println(roomName + " dungeon debug");
+            
         }
 
     }
