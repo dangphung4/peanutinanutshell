@@ -1,25 +1,17 @@
 Zork III save data
-Dungeon file: /home/stephen/teaching/240/zork/files/farmerv3.zork
+Dungeon file: ../files/Westeros.zork
 Room states:
-Stephen's office:
+Winterfell:
 beenHere=true
 ---
-Room 054:
+The Wall:
 beenHere=true
-Contents: DrPepper,burrito
----
-Basement hallway:
-beenHere=true
----
-Back hallway:
-beenHere=false
-Contents: chainsaw,magicWand
----
-Rotunda:
-beenHere=true
-Contents: StarWarsToy
+Contents: BastardSword,dragonglass,dagger
 ---
 ===
 Adventurer:
-Current room: Stephen's office
-Inventory: WawaTravelMug,donut
+Current room: The Wall
+Inventory: 
+Score: 0
+Health: 100
+Verbose: true

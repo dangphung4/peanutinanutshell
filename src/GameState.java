@@ -18,14 +18,19 @@ public class GameState {
     static String DEFAULT_SAVE_FILE = "zork_save";
     static String SAVE_FILE_EXTENSION = ".sav";
     static String SAVE_FILE_VERSION = "Zork III save data";
-
+    
     static String CURRENT_ROOM_LEADER = "Current room: ";
+    private static int MAX_HEALTH = 100;
 
+    
     private static GameState theInstance;
     private Dungeon dungeon;
+    private boolean verboseMode;
     private Room adventurersCurrentRoom;
     private ArrayList<Item> inventory = new ArrayList<>();
-
+    private int score;
+    private int health;
+    
     static synchronized GameState instance() {
         if (theInstance == null) {
             theInstance = new GameState();
@@ -68,7 +73,7 @@ public class GameState {
 
         // read inventory
         String inventoryLine = s.nextLine();
-        if (inventoryLine.startsWith("Inventory:")) {
+        if (inventoryLine.startsWith("Inventory: ")) {
             String[] itemNames = inventoryLine.substring(inventoryLine.indexOf(":") + 1).split(",");
             for (String itemName : itemNames) {
                 Item item = dungeon.getItem(itemName.trim());
@@ -77,6 +82,32 @@ public class GameState {
                 }
             }
         }
+        String scoreLine = s.nextLine();
+        if(!scoreLine.startsWith("Score:")) {
+            throw new IllegalSaveFormatException("No Score line.");
+        }
+        try {
+            this.score = Integer.parseInt(scoreLine.substring(6).trim());
+        } catch(NumberFormatException nfe) {
+            throw new IllegalSaveFormatException("Score is not an integer.");
+        }
+        String healthLine = s.nextLine();
+        if(!healthLine.startsWith("Health:")) {
+            throw new IllegalSaveFormatException("No Health line.");
+        }
+        try {
+            this.health = Integer.parseInt(healthLine.substring(7).trim());
+        } catch(NumberFormatException nfe) {
+            throw new IllegalSaveFormatException("Health is not an integer.");
+        }
+        String verboseLine = s.nextLine();
+        if(!verboseLine.startsWith("Verbose:")) {
+            throw new IllegalSaveFormatException("No Verbose Line");
+        }
+        if(!verboseLine.substring(8).trim().equals("true") && !verboseLine.substring(8).trim().equals("false")) {
+            throw new IllegalSaveFormatException("Verbose is not true or false.");
+        }
+        this.verboseMode = Boolean.parseBoolean(verboseLine.substring(8).trim());
     }
 
     void store() throws IOException {
@@ -101,11 +132,18 @@ public class GameState {
                 w.print(",");
             }
         }
-       w.close();
+        w.println();
+        w.println("Score: " + this.getScore());
+        w.println("Health: " + this.getHealth());
+        w.println("Verbose: " + this.getVerboseMode());
+        w.close();
     }
 
     void initialize(Dungeon dungeon) {
         this.dungeon = dungeon;
+        this.verboseMode = true;
+        this.score = 0;
+        this.health = MAX_HEALTH;
         adventurersCurrentRoom = dungeon.getEntry();
     }
 
@@ -164,5 +202,29 @@ public class GameState {
             }
         }
         throw new Item.NoItemException("Item not found in inventory.");
+    }
+
+    boolean getVerboseMode() {
+        return this.verboseMode;
+    }
+
+    void setVerboseMode(boolean verboseMode) {
+        this.verboseMode = verboseMode;
+    }
+
+    int getScore() {
+        return this.score;
+    }
+
+    void updateScore(int score) {
+        this.score += score;
+    }
+
+    int getHealth() {
+        return this.health;
+    }
+
+    void updateHealth(int health) {
+        this.health += health;
     }
 }
