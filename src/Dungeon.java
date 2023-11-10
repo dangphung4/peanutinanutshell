@@ -74,6 +74,7 @@ public class Dungeon {
             while (true) {
                 Item item = new Item(s);
                 items.put(item.getPrimaryName(), item);
+                
             }
         } catch (Item.NoItemException e) {
             /* end of items */ }

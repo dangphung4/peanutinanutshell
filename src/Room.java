@@ -50,7 +50,7 @@ public class Room {
             String[] itemNames = lineOfDesc.split(",");
             for (String itemName : itemNames) {
                 Item item = d.getItem(itemName.trim());
-                System.out.println("ITEM: " + item);
+                
                 if (item != null) {
                     items.add(item);
                     // System.out.println("test item " + item);
