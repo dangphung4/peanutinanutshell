@@ -11,7 +11,7 @@ alias runzork="javac *.java && java Interpreter"
   - clone the repo
   - then run these scripts:
  ```bash
-   cd ~/zorkProject/src
+   cd ~/240-fall2023-team5/src
    javac *.java
    java Interpreter ../files/(your_file_here).(zork/sav)
    ```
