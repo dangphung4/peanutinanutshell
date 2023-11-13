@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Item {
     private String primaryName;
     private int weight;
-    private Hashtable<String, String> messages;
+    private Hashtable<String, ItemEvents> messages;
     private ArrayList<String> aliases;
 
     static class NoItemException extends Exception {
@@ -49,10 +49,38 @@ public class Item {
         // read and add item specific commands
         while (!aliasesLine.equals(Dungeon.SECOND_LEVEL_DELIM)) {
             String[] splitMessage = aliasesLine.split(":", 2);
+            String events = "";
+            String message = "";
             if (splitMessage.length == 2) {
                 String verb = splitMessage[0];
-                String message = splitMessage[1];
-                messages.put(verb, message);
+
+                int indexStart = verb.indexOf("[");
+                System.out.println(indexStart);
+                int indexEnd = verb.indexOf("]");
+                System.out.println(indexEnd);
+                if (indexStart == -1 || indexEnd == -1) {
+                    events = "_NONE_";
+                    message = splitMessage[1];
+
+                }
+
+                else {
+                    message = splitMessage[1];
+                    // get all events from the verb
+                    events = verb.substring(indexStart + 1, indexEnd);
+
+                    // remove the events from the verb
+                    verb = verb.substring(0, indexStart);
+
+                }
+                String[] eventArray = events.split(",");
+                for (int i = 0; i < eventArray.length; i++) {
+                    System.out.println(eventArray[i]);
+                }
+                ItemEvents itemEvent = new ItemEvents(message, eventArray);
+                messages.put(verb, itemEvent);
+                System.out.println(verb);
+                System.out.println(messages.get(verb).getMessage());
             }
             aliasesLine = s.nextLine();
         }
@@ -67,9 +95,9 @@ public class Item {
     }
 
     public String getMessageForVerb(String verb) {
-    if(messages.get(verb) != null) {
-        return messages.get(verb);
-    } 
+        if (messages.get(verb) != null) {
+            return messages.get(verb).getMessage();
+        }
         return null;
     }
 

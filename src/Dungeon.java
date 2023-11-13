@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
 import java.io.IOException;
@@ -34,6 +35,7 @@ public class Dungeon {
     private Hashtable<String, Room> rooms;
     private Hashtable<String, Item> items; // hashtable to store items
     private String filename;
+    private ArrayList<String> listOfRooms;
 
     Dungeon(String title, Room entry) {
         init();
@@ -74,7 +76,7 @@ public class Dungeon {
             while (true) {
                 Item item = new Item(s);
                 items.put(item.getPrimaryName(), item);
-                
+
             }
         } catch (Item.NoItemException e) {
             /* end of items */ }
@@ -89,6 +91,7 @@ public class Dungeon {
             // Instantiate and add first room (the entry).
             entry = new Room(s, this, initstate);
             add(entry);
+            System.out.println("ROOM NAME TO ADD + " + entry.getName());
 
             // Instantiate and add other rooms.
             while (true) {
@@ -154,14 +157,14 @@ public class Dungeon {
         // System.out.println("dungeon restore" + roomName);
         while (!roomName.equals("Adventurer:")) {
             Room room = this.getRoom(roomName.substring(0, roomName.length() - 1));
-            
+
             if (room != null) {
-                
+
                 room.restoreState(s, this);
                 // System.out.println("dnegon room name check" + room.getName());
             }
             roomName = s.nextLine();
-            
+
         }
 
     }
@@ -192,6 +195,15 @@ public class Dungeon {
 
     public void addItem(Item item) {
         items.put(item.getPrimaryName(), item);
+    }
+
+    public String[] getListOfRooms() {
+        // String[] roomArray = new String[listOfRooms.size()];
+        // for (int i = 0; i < listOfRooms.size(); i++) {
+        //     roomArray[i] = listOfRooms.get(i);   
+        // }
+        // return roomArray;
+        return rooms.keySet().toArray(new String[rooms.size()]);
     }
 
 }
