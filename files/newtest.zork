@@ -1,0 +1,52 @@
+Castle
+Zork III
+===
+Items:
+rottenTurkeyLeg,Leg,leg
+20
+eat[Wound(10),Disappear]:Blegh, you feel sick and contemplate your life decisions.
+throw[Drop]:The turkey leg slips out of your hands, and plops to the floor embarrassingly.
+---
+vialOfBlood,vial,v
+1
+drink[Wound(-5),Score(2)]:You suddenly crave more blood.
+toss[Disappear]:The vial breaks creepily vanishes
+---
+torch
+3
+illuminate:The room is significantly more lightened, however you are now visible.
+eat[Die]:You burst into flames eating that torch. You have died. Hopefully that torch tasted good.
+---
+===
+Rooms:
+DiningRoom
+Contents: rottenTurkeyLeg
+A large table is present with every food imaginable. There is not a soul in sight.
+---
+NearEmptyCloset
+Contents: torch
+There is nothing in here, except for a flimsy torch, that smells like ham?.
+---
+TortureChamber
+Contents: vialOfBlood
+A creepy chamber with skeletons littering the floor.
+---
+===
+Exits:
+DiningRoom
+s
+NearEmptyCloset
+---
+DiningRoom
+e
+TortureChamber
+---
+NearEmptyCloset
+n
+DiningRoom
+---
+TortureChamber
+w
+DiningRoom
+---
+===

@@ -18,11 +18,10 @@ public class GameState {
     static String DEFAULT_SAVE_FILE = "zork_save";
     static String SAVE_FILE_EXTENSION = ".sav";
     static String SAVE_FILE_VERSION = "Zork III save data";
-    
+
     static String CURRENT_ROOM_LEADER = "Current room: ";
     private static int MAX_HEALTH = 100;
 
-    
     private static GameState theInstance;
     private Dungeon dungeon;
     private boolean verboseMode;
@@ -30,7 +29,7 @@ public class GameState {
     private ArrayList<Item> inventory = new ArrayList<>();
     private int score;
     private int health;
-    
+
     static synchronized GameState instance() {
         if (theInstance == null) {
             theInstance = new GameState();
@@ -67,7 +66,7 @@ public class GameState {
         // System.out.println("Adventurer" + adventTEST);
 
         String currentRoomLine = s.nextLine();
-        
+
         adventurersCurrentRoom = dungeon.getRoom(
                 currentRoomLine.substring(CURRENT_ROOM_LEADER.length()));
 
@@ -83,28 +82,28 @@ public class GameState {
             }
         }
         String scoreLine = s.nextLine();
-        if(!scoreLine.startsWith("Score:")) {
+        if (!scoreLine.startsWith("Score:")) {
             throw new IllegalSaveFormatException("No Score line.");
         }
         try {
             this.score = Integer.parseInt(scoreLine.substring(6).trim());
-        } catch(NumberFormatException nfe) {
+        } catch (NumberFormatException nfe) {
             throw new IllegalSaveFormatException("Score is not an integer.");
         }
         String healthLine = s.nextLine();
-        if(!healthLine.startsWith("Health:")) {
+        if (!healthLine.startsWith("Health:")) {
             throw new IllegalSaveFormatException("No Health line.");
         }
         try {
             this.health = Integer.parseInt(healthLine.substring(7).trim());
-        } catch(NumberFormatException nfe) {
+        } catch (NumberFormatException nfe) {
             throw new IllegalSaveFormatException("Health is not an integer.");
         }
         String verboseLine = s.nextLine();
-        if(!verboseLine.startsWith("Verbose:")) {
+        if (!verboseLine.startsWith("Verbose:")) {
             throw new IllegalSaveFormatException("No Verbose Line");
         }
-        if(!verboseLine.substring(8).trim().equals("true") && !verboseLine.substring(8).trim().equals("false")) {
+        if (!verboseLine.substring(8).trim().equals("true") && !verboseLine.substring(8).trim().equals("false")) {
             throw new IllegalSaveFormatException("Verbose is not true or false.");
         }
         this.verboseMode = Boolean.parseBoolean(verboseLine.substring(8).trim());
@@ -174,6 +173,28 @@ public class GameState {
         inventory.remove(item);
     }
 
+    void removeItemInVicinityNamed(String name) throws Item.NoItemException {
+        Room currentRoom = getAdventurersCurrentRoom();
+
+        // Check the current room's contents
+        for (Item item : currentRoom.getContents()) {
+            if (item.goesByName(name)) {
+                currentRoom.remove(item);
+            }
+        }
+
+        // remove item from inventory
+        for (Item item : inventory) {
+            if (item.goesByName(name)) {
+                inventory.remove(item);
+                return;
+            }
+        }
+
+        // if none then throw exception
+        throw new Item.NoItemException("Item not found in vicinity.");
+    }
+
     Item getItemInVicinityNamed(String name) throws Item.NoItemException {
         Room currentRoom = getAdventurersCurrentRoom();
 
@@ -216,6 +237,12 @@ public class GameState {
         return this.score;
     }
 
+    int setScore(int score) {
+        this.score = score;
+        return this.score;
+
+    }
+
     void updateScore(int score) {
         this.score += score;
     }
@@ -225,6 +252,6 @@ public class GameState {
     }
 
     void updateHealth(int health) {
-        this.health += health;
+        this.health -= health;
     }
 }
