@@ -58,6 +58,11 @@ public class Interpreter {
 
     private static String promptUser(Scanner commandLine) {
 
+        if(GameState.instance().getHealth() <=0){
+            // System.out.println("You have died. Game over.");
+            System.exit(0);
+        }
+
         System.out.print("> ");
         return commandLine.nextLine();
     }

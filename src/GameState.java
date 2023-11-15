@@ -250,6 +250,10 @@ public class GameState {
     int getHealth() {
         return this.health;
     }
+    int setHealth(int health){
+        this.health = health;
+        return this.health;
+    }
 
     void updateHealth(int health) {
         this.health -= health;
