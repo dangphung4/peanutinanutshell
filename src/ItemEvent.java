@@ -1,9 +1,9 @@
-public class ItemEvents{
+public class ItemEvent{
     private String message;
 	private String [] events;
 
 
-	ItemEvents(String message, String [] events){
+	ItemEvent(String message, String [] events){
 		this.message = message;
 		this.events =events;
 	}	

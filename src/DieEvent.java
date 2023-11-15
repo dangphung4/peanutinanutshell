@@ -3,6 +3,7 @@ public class DieEvent extends Event{
 
     DieEvent(String endMessage){
         // this.endMessage = "DEAD!";
+        
         this.endMessage = endMessage;
 }
 
@@ -11,8 +12,9 @@ public String getEndMessage(){
 }
     String callEvent(){
         GameState state = GameState.instance();
-        System.out.println(endMessage);
-        System.exit(0);
-        return endMessage;
+        // System.out.println(endMessage);
+        // System.exit(0);
+        state.setHealth(0);
+        return "You are dead";
     }
 }

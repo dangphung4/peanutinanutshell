@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Item {
     private String primaryName;
     private int weight;
-    private Hashtable<String, ItemEvents> messages;
+    private Hashtable<String, ItemEvent> messages;
     private ArrayList<String> aliases;
 
     static class NoItemException extends Exception {
@@ -35,7 +35,7 @@ public class Item {
             for (int i = 1; i < itemData.length; i++) {
                 aliases.add(itemData[i].trim());
                 // debugging
-                // System.out.println(itemData[i].trim());
+                System.out.println(itemData[i].trim());
             }
         }
 
@@ -77,7 +77,7 @@ public class Item {
                 for (int i = 0; i < eventArray.length; i++) {
                     System.out.println(eventArray[i]);
                 }
-                ItemEvents itemEvent = new ItemEvents(message, eventArray);
+                ItemEvent itemEvent = new ItemEvent(message, eventArray);
                 messages.put(verb, itemEvent);
                 System.out.println(verb);
                 System.out.println(messages.get(verb).getMessage());
@@ -108,5 +108,19 @@ public class Item {
 
     public int getWeight() {
         return weight;
+    }
+
+    public void callEvents(String [] events, String ItemName){
+        for (int i =0; i<events.length; i++){
+            System.out.println("EVENTS " + events[i]);
+            EventFactory.instance().parse(events[i], ItemName).callEvent();
+        }
+
+    }
+    public String[] getItemEvents(String verb) {
+        if (messages.get(verb) != null) {
+            return messages.get(verb).getEvents();
+        }
+        return null;
     }
 }
