@@ -258,4 +258,8 @@ public class GameState {
     void updateHealth(int health) {
         this.health -= health;
     }
+
+    int getMaxHealth() {
+        return MAX_HEALTH;
+    }
 }

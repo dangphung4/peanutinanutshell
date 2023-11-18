@@ -36,6 +36,10 @@ public class CommandFactory {
             return new LookCommand();
         } else if (cmd.equals("i") || cmd.equals("inventory")) {
             return new InventoryCommand();
+        } else if (cmd.equals("health")) {
+            return new HealthCommand();
+        } else if (cmd.equals("score")) {
+            return new ScoreCommand();
         } else if (splitCommand.length == 2) {
             // This is a catch-all for other two-word commands not explicitly checked above
             return new ItemSpecificCommand(splitCommand[0], splitCommand[1]);
