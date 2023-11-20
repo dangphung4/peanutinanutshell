@@ -17,7 +17,6 @@ public class TeleportEvent extends Event {
             String newRandomRoomName = roomNames[random.nextInt(roomNames.length)];
             Room newRandomRoom = state.getDungeon().getRoom(newRandomRoomName);
             state.setAdventurersCurrentRoom(newRandomRoom);
-
             return "TELEPORT SUCCESS!!!";
         }
 
