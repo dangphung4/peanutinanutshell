@@ -5,8 +5,7 @@ import java.util.Arrays;
 public class CommandFactory {
 
     private static CommandFactory theInstance;
-    public static List<String> MOVEMENT_COMMANDS = 
-        Arrays.asList("n","w","e","s","u","d" );
+    public static List<String> MOVEMENT_COMMANDS = Arrays.asList("n", "w", "e", "s", "u", "d");
 
     public static synchronized CommandFactory instance() {
         if (theInstance == null) {
@@ -18,7 +17,7 @@ public class CommandFactory {
     private CommandFactory() {
     }
 
-      public Command parse(String command) {
+    public Command parse(String command) {
         String[] splitCommand = command.split("\\s+"); // Split the command by whitespace
         String cmd = splitCommand.length > 0 ? splitCommand[0] : "";
 
@@ -30,7 +29,7 @@ public class CommandFactory {
             return new SaveCommand(splitCommand[1]);
         } else if (cmd.equals("take")) {
             // If 'take' is used without specifying an item, handle accordingly
-            String itemName = splitCommand.length > 1 ? splitCommand[1] : null; 
+            String itemName = splitCommand.length > 1 ? splitCommand[1] : null;
             return new TakeCommand(itemName);
         } else if (cmd.equals("look")) {
             return new LookCommand();
@@ -40,6 +39,8 @@ public class CommandFactory {
             return new HealthCommand();
         } else if (cmd.equals("score")) {
             return new ScoreCommand();
+        } else if (cmd.equals("verbose") && splitCommand.length > 1) {
+            return new VerboseCommand(splitCommand[1]);
         } else if (splitCommand.length == 2) {
             // This is a catch-all for other two-word commands not explicitly checked above
             return new ItemSpecificCommand(splitCommand[0], splitCommand[1]);
@@ -49,4 +50,3 @@ public class CommandFactory {
         }
     }
 }
-
