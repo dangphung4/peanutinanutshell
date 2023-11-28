@@ -35,7 +35,7 @@ public class Item {
             for (int i = 1; i < itemData.length; i++) {
                 aliases.add(itemData[i].trim());
                 // debugging
-                System.out.println(itemData[i].trim());
+                // System.out.println(itemData[i].trim());
             }
         }
 
@@ -55,9 +55,9 @@ public class Item {
                 String verb = splitMessage[0];
 
                 int indexStart = verb.indexOf("[");
-                System.out.println(indexStart);
+                // System.out.println(indexStart);
                 int indexEnd = verb.indexOf("]");
-                System.out.println(indexEnd);
+                // System.out.println(indexEnd);
                 if (indexStart == -1 || indexEnd == -1) {
                     events = "_NONE_";
                     message = splitMessage[1];
@@ -74,13 +74,13 @@ public class Item {
 
                 }
                 String[] eventArray = events.split(",");
-                for (int i = 0; i < eventArray.length; i++) {
-                    System.out.println(eventArray[i]);
-                }
+                // for (int i = 0; i < eventArray.length; i++) {
+                //     System.out.println(eventArray[i]);
+                // }
                 ItemEvent itemEvent = new ItemEvent(message, eventArray);
                 messages.put(verb, itemEvent);
-                System.out.println(verb);
-                System.out.println(messages.get(verb).getMessage());
+                // System.out.println(verb);
+                // System.out.println(messages.get(verb).getMessage());
             }
             aliasesLine = s.nextLine();
         }
@@ -112,7 +112,6 @@ public class Item {
 
     public void callEvents(String [] events, String ItemName){
         for (int i =0; i<events.length; i++){
-            System.out.println("EVENTS " + events[i]);
             EventFactory.instance().parse(events[i], ItemName).callEvent();
         }
 

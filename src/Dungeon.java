@@ -91,7 +91,6 @@ public class Dungeon {
             // Instantiate and add first room (the entry).
             entry = new Room(s, this, initstate);
             add(entry);
-            System.out.println("ROOM NAME TO ADD + " + entry.getName());
 
             // Instantiate and add other rooms.
             while (true) {

@@ -10,7 +10,6 @@ class WoundEvent extends Event{
 
 	String callEvent(){
 	    GameState.instance().updateHealth(amountOfWound);
-		System.out.println(GameState.instance().getHealth());
 	    return "WOUND AMOUNT " + amountOfWound;
 	}
 }
