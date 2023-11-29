@@ -39,7 +39,7 @@ public class CommandFactory {
             return new HealthCommand();
         } else if (cmd.equals("score")) {
             return new ScoreCommand();
-        } else if (cmd.equals("verbose") && splitCommand.length > 1) {
+        } else if (splitCommand[0].equals("verbose") && splitCommand.length > 1) {
             return new VerboseCommand(splitCommand[1]);
         } else if (splitCommand.length == 2) {
             // This is a catch-all for other two-word commands not explicitly checked above
