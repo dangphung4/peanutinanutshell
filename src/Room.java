@@ -131,6 +131,11 @@ public class Room {
                 }
                 w.println(); // End the line for Contents
             }
+            for(Exit exit : exits) {
+                if(exit.isLockable() && !exit.isLocked()) {
+                    w.println(exit.getDir() + ": unlocked");
+                }
+            }
 
             w.println(Dungeon.SECOND_LEVEL_DELIM);
         }
@@ -165,9 +170,24 @@ public class Room {
             line = s.nextLine(); // Move to the next line after reading the contents
         }
 
+        boolean validExit;
         // If the next line is the '---', just skip it
-        if (line.equals("---")) {
-            // This reads and discards the '---' line
+        while (!line.equals("---") && line.substring(1).equals(": unlocked")) {
+           validExit = false;
+            for(Exit exit : exits) {
+                if(exit.getDir().equals(line.substring(0, 1))) {
+                    exit.setLocked(false);
+                    validExit = true;
+                }
+            }
+            if(!validExit) {
+                throw new GameState.IllegalSaveFormatException("Invalid Exit dir \"" + line.substring(0, 1) + "\"");
+            }
+
+            line = s.nextLine();
+        }
+        if(!line.equals("---")) {
+            throw new GameState.IllegalSaveFormatException("No delimiter");
         }
     }
 

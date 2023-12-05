@@ -46,6 +46,8 @@ public class Exit {
 
         String keyItemName = s.nextLine().trim();
 
+        this.lockable = false;
+        this.locked = false;
         if(!keyItemName.equals(Dungeon.SECOND_LEVEL_DELIM)) {
             this.keyItem = d.getItem(keyItemName);
             if(this.keyItem != null) {
