@@ -58,7 +58,7 @@ public class GameState {
         }
         // dungeon and read rooms as well, should eat ====
         dungeon = new Dungeon(dungeonFileLine.substring(
-                Dungeon.FILENAME_LEADER.length()), true);
+                Dungeon.FILENAME_LEADER.length()), false);
         dungeon.restoreState(s);
 
         // skip adventurer
