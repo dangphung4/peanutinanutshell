@@ -199,10 +199,25 @@ public class Room {
     public Room leaveBy(String dir) {
         for (Exit exit : exits) {
             if (exit.getDir().equals(dir)) {
-                return exit.getDest();
+                if (!exit.isLockable() || !exit.isLocked() || tryUnlockDoor(exit)) {
+                    return exit.getDest();
+                }
             }
         }
         return null;
+    }
+    
+    private boolean tryUnlockDoor(Exit exit) {
+        if (exit.isLocked()) {
+            try {
+                GameState.instance().getItemFromInventoryNamed(exit.getKeyItem().getPrimaryName());
+                exit.setLocked(false);
+                return true;
+            } catch (Item.NoItemException nie) {
+                return false;
+            }
+        }
+        return true;
     }
 
     void addExit(Exit exit) {
@@ -231,3 +246,4 @@ public class Room {
         return items;
     }
 }
+

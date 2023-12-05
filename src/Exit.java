@@ -7,6 +7,9 @@ public class Exit {
 
     private String dir;
     private Room src, dest;
+    private boolean lockable;
+    private boolean locked;
+    private Item keyItem;
 
     Exit(String dir, Room src, Room dest) {
         init();
@@ -37,15 +40,31 @@ public class Exit {
         src = d.getRoom(srcTitle);
         dir = s.nextLine().trim();
         dest = d.getRoom(s.nextLine().trim());
-        
+
         // I'm an Exit object. Add me as an exit to my source Room.
         src.addExit(this);
 
+        String keyItemName = s.nextLine().trim();
+
+        if(!keyItemName.equals(Dungeon.SECOND_LEVEL_DELIM)) {
+            this.keyItem = d.getItem(keyItemName);
+            if(this.keyItem != null) {
+                this.lockable = true;
+                this.locked = true;
+            } else {
+                throw new Dungeon.IllegalDungeonFormatException("Key item \"" + keyItemName + "\" for the " + this.src.getName() + " " + this.dir + " " + this.dest.getName() + " exit does not exist");
+            }
+            // throw away delimiter
+            if (!s.nextLine().equals(Dungeon.SECOND_LEVEL_DELIM)) {
+                throw new Dungeon.IllegalDungeonFormatException("No '" + Dungeon.SECOND_LEVEL_DELIM + "' after exit.");
+            }
+        }
         // throw away delimiter
-        if (!s.nextLine().equals(Dungeon.SECOND_LEVEL_DELIM)) {
+        else if (!keyItemName.equals(Dungeon.SECOND_LEVEL_DELIM)) {
             throw new Dungeon.IllegalDungeonFormatException("No '" +
                 Dungeon.SECOND_LEVEL_DELIM + "' after exit.");
         }
+        
     }
 
     // Common object initialization tasks.
@@ -53,10 +72,16 @@ public class Exit {
     }
 
     String describe() {
-        return "You can go " + dir + " to " + dest.getName() + ".";
+        return "You can go " + this.dir + " to " + dest.getName() + ".";
     }
 
-    String getDir() { return dir; }
-    Room getSrc() { return src; }
-    Room getDest() { return dest; }
+    String getDir() { return this.dir; }
+    Room getSrc() { return this.src; }
+    Room getDest() { return this.dest; }
+    boolean isLockable() { return this.lockable; }
+    boolean isLocked() { return this.locked; }
+    Item getKeyItem() { return this.keyItem; }
+    void setLocked(boolean value) { this.locked = value; }
+
 }
+
