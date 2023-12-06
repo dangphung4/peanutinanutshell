@@ -9,12 +9,15 @@ class ItemSpecificCommand extends Command {
         this.noun = noun;
     }
 
+
     String execute() {
         try {
             Item item = GameState.instance().getItemInVicinityNamed(noun);
+            
             if(item.getMessageForVerb(this.verb) != null) {
                 if(item.getItemEvents(this.verb)[0].equals("_NONE_")) {
                     // System.out.println("NO COMMMAND HERE: " + item.getItemEvents(verb)[0]);
+
                     return item.getMessageForVerb(this.verb) + "\n";
                 } else {
                     String[] events = item.getItemEvents(this.verb);

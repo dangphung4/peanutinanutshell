@@ -208,7 +208,9 @@ public class Room {
 
         if (verboseMode) {
             for (Exit exit : exits) {
-                description += "\n" + exit.describe();
+                if(!exit.isLockable() || !exit.isLocked()) {
+                    description += "\n" + exit.describe();
+                }
             }
         }
         description += "\n";

@@ -262,4 +262,12 @@ public class GameState {
     int getMaxHealth() {
         return MAX_HEALTH;
     }
+
+    int getWeight() {
+        int weight = 0;
+        for(Item item : inventory) {
+            weight += item.getWeight();
+        }
+        return weight;
+    }
 }

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
 
-public class Item {
+class Item {
     private String primaryName;
     private int weight;
     private Hashtable<String, ItemEvent> messages;

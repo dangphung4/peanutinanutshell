@@ -1,13 +1,11 @@
 class WinEvent extends Event{
 
-	private String winMessage;
 
-	WinEvent(String winMessage){
-		// winMessage = "HURRAH YOU HAVE WON!!!";
-		// this.winMessage = winMessage;
+	WinEvent(String item){
 	}
 	String callEvent(){
-		System.out.println("HURRAH YOU HAVE WON!!!");
+
+		System.out.println("CONGRATULATIONS!!! YOU WIN!!!");
 		System.exit(0);
 		return "";
 	}

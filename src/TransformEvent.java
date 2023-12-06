@@ -1,35 +1,37 @@
 public class TransformEvent extends Event {
     String itemName;
-    String transformedItemName;
+    String nextItemName;
+    Item nextItem;
 
-    TransformEvent(String s) {
-        int openParenthesis = s.indexOf("(");
-        int closeParenthesis = s.indexOf(")");
-        int colon = s.indexOf(":");
-        this.transformedItemName = s.substring(openParenthesis + 1, closeParenthesis);
-        this.itemName = s.substring(colon + 1);
-        System.out.println("ITEM NAME TRANSOFRM EVENT " + itemName);
-        System.out.println("TRSANSFORMED ITEM  NAME TRANSOFRM EVENT " + transformedItemName);
+    //args[0] is event command & args[1] is the item name
+    TransformEvent(String[] args) {
+        int openParenthesis = args[0].indexOf("(");
+        int closeParenthesis = args[0].indexOf(")");
+        this.nextItemName = args[0].substring(openParenthesis + 1, closeParenthesis);
+        this.itemName = args[1];
     }
 
     String callEvent() {
-        GameState state = GameState.instance();
-        try {
-            try {
-                //swap out items in the inventory
-            state.removeFromInventory(state.getItemFromInventoryNamed(this.itemName));
-            state.addToInventory(state.getDungeon().getItem(this.transformedItemName));
-            }
-            catch(Exception e){}
-            try{
-                //swap out items in the room
-                state.getAdventurersCurrentRoom().remove(state.getItemInVicinityNamed(this.itemName));
-                state.getAdventurersCurrentRoom().add(state.getDungeon().getItem(this.transformedItemName));
-            }
-            catch(Exception e){}
-        } catch (Exception e) {
+        GameState gameState = GameState.instance();
 
+        try{
+            gameState.removeFromInventory(gameState.getItemFromInventoryNamed(itemName));
+        } catch(Item.NoItemException nie) {}
+
+        try{
+            gameState.removeItemInVicinityNamed(itemName);
+        } catch(Item.NoItemException nie) {}
+
+        this.nextItem = gameState.getDungeon().getItem(nextItemName);
+        if(nextItem != null) {
+            int adventurersCurrentWeight = gameState.getWeight();
+            if(adventurersCurrentWeight + this.nextItem.getWeight() > 40) { 
+                gameState.getAdventurersCurrentRoom().add(nextItem);
+            } else {
+                gameState.addToInventory(nextItem);
+            }
+            return itemName + " transformed into " + nextItemName + ".";
         }
-        return "ITEM TRANSFORMED: " + itemName + " TO " + transformedItemName;
+        return itemName + "hasn't transformed into anthing and has dissapeared from existance.";
     }
 }

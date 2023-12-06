@@ -6,36 +6,17 @@ class DisappearEvent extends Event {
     }
 
     String callEvent() {
-        GameState state = GameState.instance();
-        // System.out.println(this.itemName + " THIS ITEM NAMEM@MM@M@M@M");
+        GameState gameState = GameState.instance();
 
-        try {
-            // System.out.println("HELLO?");
-            // state.getAdventurersCurrentRoom().remove(state.getItemFromInventoryNamed(itemName));
-            // state.removeFromInventory(state.getItemFromInventoryNamed(itemName));
-            try{
-                state.getAdventurersCurrentRoom().remove(state.getItemInVicinityNamed(itemName));
-            }
-            catch (Exception e) {
-                System.out.println("ITEM NOT IN CURRENT ROOM, but maybe INVENTORY?");
-            }
-            try{
-                state.removeFromInventory(state.getItemFromInventoryNamed(itemName));
-            }
-            catch (Exception e) {
-                // System.out.println("ITEM NOT IN INVENTORY");
-            }
-            
-        } catch (Exception e) {
-            // e.printStackTrace();
-        }
+        try { //attempt removal from inventory
+            gameState.removeFromInventory(gameState.getItemFromInventoryNamed(itemName));
+        } catch(Item.NoItemException nie) {}
 
-        // try {
-        //     state.getAdventurersCurrentRoom().remove(state.getItemFromInventoryNamed(itemName));
-        // } catch (Exception e) {
-        //     e.printStackTrace();
-        // }
-        // System.out.println("ITEM SHULD BE DISAPPEARED " + itemName);
-        return "ITEM SHULD BE DISAPPEARED " + itemName;
+        try { //atempt removal from room
+            gameState.getAdventurersCurrentRoom().remove(gameState.getItemInVicinityNamed(itemName));
+        } catch(Item.NoItemException nie) {}
+
+        //item has now been poofed from existance in this physical plane
+        return "The " + this.itemName + " has been systematically removed from this world.";
     }
 }
