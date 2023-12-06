@@ -15,7 +15,7 @@ Throne,throne,toilet
 100
 examine:An ancient throne, a bowl filled with water in the centre, and a handle resembling an arcane lever: its purpose, a mystery lost to you. A short stack of papers sits on top, seemingly untouched by time.
 sit[Win]:As you sit one the throne, you find it is quite chilly to the touch, but you feel triumphant.
-flush[Score(1)]:You push the handle down and see the water inside begin to swirl, then dissapear, then reappear like it never left.
+pull[Score(1)]:You pull the lever down and see the water inside begin to swirl, then dissapear, then reappear like it never left.
 ---
 ===
 Rooms:

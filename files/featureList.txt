@@ -1,0 +1,16 @@
+Verbose -- You can turn on and off Verbose mode
+by using "verbose true|false"
+This will turn on/off a mode that prints
+all the exits to a room when entering
+ie. with Verbose mode ofgf, it makes the game harder
+by not telling you where you can go and you need to
+extrapolate that information from the room desriptions
+------------------------------------------------------
+Lockable Exits -- a feature where exts can spawn locked
+exits will have the chance to be locked when the game is started
+this happens when they have a key item attached to them
+that will allow them to open
+in sampleDungeon.zork the only exit out of the starting room
+is locked, until you pick up the GoldenKey, the n exit's key item,
+and it opens for the rest of the game and persistantly stays open
+through save files
