@@ -1,0 +1,45 @@
+sampleDungeon
+Zork++
+===
+Items:
+GoldenKey,Key,key
+4
+examine:A gold plated key, it looks important.
+break[Wound(1),Disappear]: OUCH! you snap the key in half and it crumbles to dust.
+---
+papers,paper,newspaper,Cosmopolitan
+2
+examine:The papers are bound together at a seam, the front page reads "Cosmopolitan"
+---
+Throne,throne,toilet
+100
+examine:An ancient throne, a bowl filled with water in the centre, and a handle resembling an arcane lever: its purpose, a mystery lost to you. A short stack of papers sits on top, seemingly untouched by time.
+sit[Win]:As you sit one the throne, you find it is quite chilly to the touch, but you feel triumphant.
+flush[Score(1)]:You push the handle down and see the water inside begin to swirl, then dissapear, then reappear like it never left.
+---
+===
+Rooms:
+Mossy Room
+Contents:GoldenKey
+A boxy stone room with cobble floors,
+with moss covering seemly every surface.
+Execpt one, 
+a mahogany door with a golden key hole.
+---
+Throne Room
+Contents:Throne,papers
+A small room with tiled floor and a curtain off to the left.
+There is what you believe to be a throne of some kind sitting against the wall
+---
+===
+Exits:
+Mossy Room
+n
+Throne Room
+GoldenKey
+---
+Throne Room
+s
+Mossy Room
+---
+===
