@@ -80,7 +80,7 @@ NewBornOldOne
 examine[Score(25)]::A worm like creature found laying beside an old doll. You feel a sense of cosmic terror coming from it.
 touch[Win]:You have finally found who, or now what, has left where you have been how it was.
 hold[Win]:You have finally found who, or now what, has left where you have been how it was.
-kill[Die]
+kill[Die]:Poor unfortunate soul, you destroyed the onlything that could tell you what happened.
 ---
 Hunter'sMark
 2
