@@ -1,0 +1,462 @@
+SillySnackLand
+Zork++
+===
+Items:
+SugarySyrup,syrup
+1
+examine[Score(1)]::A bottle filled with sparkling, sweet syrup. It seems to radiate a sugary aroma.
+use[Wound(-5),Disappear]:You drink the syrup, feeling a sugar rush that empowers you, but also leaves you a bit dizzy.
+---
+CandyNote,candynote
+1
+examine[Score(5)]::A note that reads "Welcome to the whimsical world of SillySnackLand, where every bite is an adventure! Look for keys to find what may lie hidden in your venture of sweetness...."
+burn[Disappear]:The note ignites and quickly burns to ashes, leaving behind a sweet scent.
+---
+LollipopKey,loli,lolipop,lolipopkey
+3
+examine[Score(5)]::A colorful key shaped like a lollipop. It might unlock something delightful and unexpected.
+---
+GummyBearKey,gummykey,gummybearkey,gummybear,gummy
+3
+examine[Score(5)]::A small, squishy key that looks like a gummy bear. It could fit in a lock with a playful design.
+---
+MarshmallowMessage,marshmallowmessage,message
+1
+examine[Score(5)]::A fluffy marshmallow with a message imprinted: "Beware of the sugar rush, it's not all sweet!"
+---
+ChocoChunk,chocochunk,chunk
+10
+examine[Score(5)]::A piece of rich chocolate, looking both tempting and ominous. Could it be a key to something hidden?
+---
+FizzyFur,fizzyfur,fur
+5
+examine[Score(5)]::A patch of fur that crackles with fizzy energy. Perhaps it can unlock fizzy, bubbly places.
+---
+IceCreamPass,icecreampass,icepass,creampass,icecream
+1
+examine[Score(5)]::A frosty key that resembles a scoop of ice cream. It seems to unlock a path to somewhere cold and sweet.
+---
+CaramelInvitation,invitation,caremelinvitation
+1
+examine[Score(5)]::An elegant invitation with a caramel scent. It suggests a gathering of flavors at an exclusive confectionery event.
+---
+CrownOfConfectionery,crown,confectionery
+10
+examine[Score(10)]::A crown adorned with candy jewels and a chocolate coating. It looks regal yet delicious.
+wear[Score(5)]:Wearing the crown, you recall memories of a legendary Candy King and his sweet rule.
+---
+ToothFairyTooth,toothfairytooth,tooth
+15
+examine[Score(15)]::An oversized tooth, shining with a magical aura. Perhaps it belonged to the mythical Tooth Fairy.
+---
+BakeryNote,bakerynote
+1
+examine[Score(5)]::A note scribbled with a recipe for the perfect pastry. It also hints at the secret ingredient: "Laughter is the best sugar."
+---
+SourStone,sourstone,stone
+5
+examine[Score(5)]::A stone that makes your mouth pucker with its sourness. It urges you to visit the Sour Patch south of the Cupcake Commons.
+---
+GingerbreadKey,ginger,gingerbread,bread
+2
+examine[Score(5)]::A key made of gingerbread, sturdy yet sweet. It might unlock doors in a gingerbread house.
+---
+CagedCandy,candy
+0
+examine[Score(10)]::A cage containing a dancing candy cane. It appears to be alive and full of energy.
+wear[Drop,Transform(Cage)]:Attempting to free the candy cane, you accidentally drop the cage, transforming it into a pile of sweets.
+---
+CandyCage,cage
+0
+examine[Score(5)]:The same cage that contained the dancing candy cane, now empty and filled with candy wrappers.
+wear[score(50)]:You wear the empty cage on your head, feeling slightly silly but amused.
+---
+SugarKey,sugarkey,sugar
+0
+examine[Score(5)]::A key glistening with sugar crystals. It might lead to a place filled with sweet surprises.
+---
+MysteriousMarshmallow,marshmellow,marshmallow,marsh
+10
+examine[Score(25)]::A peculiar marshmallow emitting a soft glow. It seems to hold the secrets of SillySnackLand within.
+roast[Win]:You finally understand the heart of SillySnackLand's sweetness.
+hold[Score(15)]:Holding the marshmallow, you feel the joy and laughter of the land.
+eat[Die]:In trying to eat the marshmallow, you find it's too magical and the sweetness overwhelms you.
+---
+Confectioner'sSeal,seal
+2
+examine:A seal stamped with a cupcake emblem. Its use is a mystery.
+touch[Teleport,Disappear]: Touching the seal, you find yourself transported to a different part of SillySnackLand.
+---
+===
+Rooms:
+CandyClinic
+Contents: CandyNote
+You find yourself in a bright, colorful clinic filled with candy. On a desk lies a note. "Welcome to SillySnackLand, where every flavor tells a story.
+Your quest is to uncover the secret sweetness of SillySnackLand by finding and doing something the MysteriousMarshmallow."
+---
+SugarStreet
+A vibrant city street lined with candy shops and chocolate fountains. Gummy bears and licorice cats roam freely among the joyful residents.
+---
+GumdropBridge
+A bridge made entirely of colorful gumdrops, stretching over a river of lemonade. A giant gummy worm rests in the middle, seemingly asleep.
+---
+CookieGraveyard
+Contents: GummyBearKey
+A quaint graveyard with cookie tombstones and frosting-covered graves. A mysterious key lies next to a particularly ornate cookie crypt.
+---
+FrostingChapel
+Contents: ChocoChunk
+A sweet-smelling chapel with walls frosted like a cake. Inside, candy worshippers quietly exchange recipes and share confectionery secrets.
+---
+HoneycombTown
+A bustling town with buildings made of honeycomb and bees buzzing with sugary pollen. Streets are sticky with honey, and the air smells deliciously sweet.
+---
+ChocolateChurch
+Contents: FizzyFur
+A grand church with a roof missing, revealing a sky of swirling caramel clouds. A large chocolate chunk lies at the altar, surrounded by candy pews.
+---
+SourPatchField
+Contents: IceCreamPass
+A field of sour grass and tart flowers, with a static energy in the air. In the center, a patch of fur crackles with sour power.
+---
+SprinkleWorkshop
+A workshop towering with jars of sprinkles and sugary tools. The walls are lined with recipes for fantastic treats and sweet creations.
+---
+Creamery
+An area below the workshop filled with ice cream machines and frozen delights. The air is cool and filled with the scent of fresh waffle cones.
+---
+GingerbreadCottage
+Contents: CaramelInvitation
+A cozy cottage under a gingerbread tree. Inside, the air is warm with the smell of baking gingerbread, and a key rests on a candy cane hook.
+---
+VanillaCathedral
+Contents: MarshmallowMessage, SugarySyrup
+A large cathedral with vanilla-scented candles. The altar is adorned with a marshmallow message next to a vial of sparkling syrup.
+---
+CupcakeLane
+A path lined with cupcake houses and frosting flowers. At the end of the lane, a mysterious carriage waits, adorned with candy jewels.
+---
+FudgeRoom
+A room with walls dripping in fudge, and a table set for a tea party. The chairs are filled with teddy bears enjoying a silent banquet.
+---
+JellybeanJail
+A prison made of jellybeans, with cells filled with sugar-coated inmates. The air is sticky, and the guards are vigilant gummy worms.
+---
+LollipopForest
+A forest dark and filled with candy cane trees and lollipop bushes. In a clearing, a pond of molten chocolate bubbles invitingly.
+---
+IcingInfirmary
+Contents: CaramelInvitation, LollipopKey
+A pastel infirmary with icing bandages and candy pill bottles. Among the letters, an invitation with a caramel scent stands out, along with a unique key.
+---
+PeppermintCastle
+A majestic castle amidst a blizzard of powdered sugar. The halls are empty, but echoes of laughter and joy can still be heard.
+---
+Frost Throne
+Contents: CrownOfConfectionery
+Atop the castle lies a throne room, cold and adorned with ice sculptures. A crown of confectionery rests on the frost-covered throne.
+---
+CandyQueen'sChamber
+Contents: ToothFairyTooth
+Behind a wall of chocolate, a hidden chamber reveals two thrones. On one of them rests an oversized, shimmering tooth.
+---
+GelatinGrave
+An entrance through a wobbly archway leads to a marsh of gelatinous ground. The trees are covered in a coat of colorful jelly.
+---
+ButterscotchLibrary
+Contents: BakeryNote
+A library by a moonlit lake, with shelves of cookbooks and candy lore. A note with a recipe for happiness rests on a rocking chair.
+---
+LemonadeLake
+Contents: SourStone
+Upon entering the lake, you find yourself in a realm of sparkling lemonade. A large, lemon-like creature floats serenely in the center.
+---
+CaramelVillage
+Contents: GingerbreadKey
+An older, more dilapidated town than HoneycombTown, with houses made of caramel and toffee. The streets are quiet, with an eerie feeling in the air.
+---
+CaramelChapel
+A safe haven in the midst of the village. The chapel is warm, with a scent of burnt sugar filling the air.
+---
+SweetPlaza
+Contents: CagedCandy
+A plaza surrounded by candy floss trees and chocolate fountains. In the center, a cage with a dancing candy cane attracts a crowd of onlookers.
+---
+DreamyDessert
+You find yourself in a dreamy landscape, where the ground is made of fluffy cake. A large building looms in the distance, beckoning you to explore.
+---
+DessertLoftBase
+Inside the building, holes in the floor reveal layers of different desserts. The aroma is overwhelming, and the only way forward is up.
+---
+DessertLoftMiddle
+Contents: SugarKey
+A labyrinth of dessert-themed rooms and corridors. Among them, you find a body holding a key, glistening with sugar crystals.
+---
+CreamyLunarium
+Contents: Confectioner'sSeal
+Atop the building, an open area with a creamy floor and a giant cupcake in the center. The ambiance is surreal and peaceful.
+---
+Confectioner'sDream
+Contents: MysteriousMarshmallow
+A dreamlike area with a small gingerbread house. Outside, a dormant doll holds a glowing marshmallow, surrounded by a magical aura.
+---
+===
+Exits:
+CandyClinic
+e
+SugarStreet
+---
+SugarStreet
+w
+CandyClinic
+---
+CandyClinic
+s
+IcingInfirmary
+LollipopKey
+---
+IcingInfirmary
+n
+CandyClinic
+LollipopKey
+---
+SugarStreet
+u
+GumdropBridge
+---
+GumdropBridge
+d
+SugarStreet
+---
+SugarStreet
+n
+CookieGraveyard
+---
+CookieGraveyard
+e
+SugarStreet
+---
+CookieGraveyard
+s
+FrostingChapel
+GummyBearKey
+---
+FrostingChapel
+d
+CookieGraveyard
+---
+FrostingChapel
+s
+HoneycombTown
+---
+HoneycombTown
+u
+FrostingChapel
+---
+FrostingChapel
+e
+VanillaCathedral
+---
+VanillaCathedral
+w
+FrostingChapel
+---
+FrostingChapel
+n
+LollipopForest
+---
+LollipopForest
+s
+FrostingChapel
+---
+LollipopForest
+u
+SprinkleWorkshop
+---
+SprinkleWorkshop
+e
+FrostingChapel
+---
+HoneycombTown
+e
+ChocolateChurch
+---
+ChocolateChurch
+u
+HoneycombTown
+---
+HoneycombTown
+d
+JellybeanJail
+ChocoChunk
+---
+ChocolateChurch
+w
+SourPatchField
+FizzyFur
+---
+SourPatchField
+e
+ChocolateChurch
+FizzyFur
+---
+SprinkleWorkshop
+d
+Creamery
+---
+Creamery
+n
+SprinkleWorkshop
+IceCreamPass
+---
+Creamery
+s
+GingerbreadCottage
+---
+GingerbreadCottage
+n
+Creamery
+---
+VanillaCathedral
+n
+CupcakeLane
+---
+CupcakeLane
+s
+VanillaCathedral
+---
+VanillaCathedral
+s
+CaramelVillage
+---
+CaramelVillage
+n
+VanillaCathedral
+---
+CupcakeLane
+n
+FudgeRoom
+---
+FudgeRoom
+s
+CupcakeLane
+---
+CupcakeLane
+e
+PeppermintCastle
+CaramelInvitation
+---
+PeppermintCastle
+s
+CupcakeLane
+---
+JellybeanJail
+e
+SourPatchField
+---
+SourPatchField
+w
+JellybeanJail
+---
+JellybeanJail
+e
+CaramelVillage
+GingerbreadKey
+---
+CaramelVillage
+w
+JellybeanJail
+GingerbreadKey
+---
+LollipopForest
+u
+IcingInfirmary
+---
+IcingInfirmary
+d
+LollipopForest
+---
+LollipopForest
+e
+GelatinGrave
+---
+GelatinGrave
+w
+LollipopForest
+---
+PeppermintCastle
+u
+Frost Throne
+---
+Frost Throne
+d
+PeppermintCastle
+---
+Frost Throne
+n
+CandyQueen'sChamber
+CrownOfConfectionery
+---
+CandyQueen'sChamber
+s
+Frost Throne
+---
+GelatinGrave
+e
+ButterscotchLibrary
+---
+ButterscotchLibrary
+s
+GelatinGrave
+---
+ButterscotchLibrary
+n
+LemonadeLake
+---
+LemonadeLake
+s
+ButterscotchLibrary
+---
+CaramelVillage
+s
+CaramelChapel
+---
+CaramelChapel
+d
+SweetPlaza
+---
+SweetPlaza
+u
+CaramelChapel
+---
+SweetPlaza
+s
+DreamyDessert
+CagedCandy
+---
+DreamyDessert
+u
+DessertLoftBase
+---
+DessertLoftBase
+d
+DreamyDessert
+---
+DessertLoftBase
+u
+DessertLoftMiddle
+---
+DessertLoftMiddle
+u
+CreamyLunarium
+SugarKey
+---
+CreamyLunarium
+d
+DessertLoftMiddle
+---
+CreamyLunarium
+u
+Confectioner'sDream
+---
+===

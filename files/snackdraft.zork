@@ -1,0 +1,261 @@
+SillySnackLand
+Zork++
+===
+Items:
+GooeyGumdropSaber,saber
+10
+examine[Score(1)]::A shimmering saber crafted from the stickiest gumdrops.
+use[Disappear]:As you swing the saber, it sticks to a wall and disappears.
+swing[Teleport]:Swinging the saber teleports you to a random room in a sticky situation.
+---
+JellybeanJavelin,javelin
+5
+examine[Score(1)]::A colorful javelin with a pointy jellybean tip and licorice stick shaft.
+throw[Disappear]:You throw the javelin, and it lands in a pudding puddle, disappearing.
+hold[Score(2)]:Holding the javelin makes you feel surprisingly agile.
+---
+CrispyCookieShield,shield
+10
+examine[Score(1)]::A round shield composed of crunchy cookies.
+block[Disappear]:You block an attack, but the shield crumbles into cookie crumbs.
+raise[Score(2)]:Raising the shield boosts your confidence, giving you a score boost.
+---
+FizzyPopPotion,potion
+1
+examine[Score(1)]::A potion that bubbles with rainbow sherbet soda.
+drink[Teleport]:Drinking it teleports you to a random room.
+shake[Score(2),Disappear]:Shaking the potion causes it to explode in a burst of colors.
+---
+PlatinumPancake,pancake
+15
+examine[Score(2)]::An exquisite pancake glistening with platinum syrup.
+eat[Score(5),Disappear]:You eat the pancake, feeling oddly empowered.
+offer[Score(3),Disappear]:Offering the pancake to someone or something may have interesting results.
+---
+WackyVeggieEgg,GreenEgg
+20
+examine[Score(3)]::A bright green egg, squirming slightly.
+touch[Score(5),Disappear]:You touch the egg, and it hatches into a friendly veggie sprite.
+roll[Teleport]:Rolling the egg teleports you to the VeggieVillage.
+---
+ZanyMeatballEgg,RedEgg
+20
+examine[Score(3)]::A lively red egg made from layers of meatballs.
+touch[Score(5),Disappear]:Touching the egg causes it to hatch into a playful meatball monster.
+cook[Score(2),Disappear]:Attempting to cook the egg results in a humorous culinary mishap.
+---
+NuggetNestlingEgg,YellowEgg
+25
+examine[Score(4)]::A golden egg humming a silly tune.
+listen[Win]:Listening to the egg's tune wins the game.
+shake[Score(3)]:Shaking the egg changes its tune, which is oddly mesmerizing.
+---
+CottonCandyCloud,cloud
+5
+examine[Score(1)]::A fluffy pink cloud of cotton candy.
+touch[Teleport]:Touching the cloud teleports you to the CottonCandyKingdom.
+inhale[Score(2)]:Inhaling deeply near the cloud makes you feel light and happy.
+---
+ChocoChalice,chalice
+10
+examine[Score(2)]::A chocolate goblet filled with marshmallow fluff.
+drink[Score(5),Disappear]:Drinking from the chalice gives you a sweet power boost.
+pour[Score(3),Disappear]:Pouring the contents of the chalice creates a delicious chocolate fountain.
+---
+===
+Rooms:
+HotdogHilarity
+Contents: JellybeanJavelin
+You find yourself in a whimsical town made of hot dogs.
+Sausage skyscrapers and squishy bun streets make for a comical sight.
+Win the game by finding and listening to the NuggetNestlingEgg's tune.
+---
+CondimentCarnival
+Contents: GooeyGumdropSaber
+A carnival of condiments stretches out, with ketchup fountains and mustard slides.
+It's a delightful chaos of flavors where mayo merry-go-rounds spin and relish rockets zoom by.
+The laughter and joyous shouts of visitors mix with the sweet and tangy aromas in the air.
+---
+BurgerBonanza
+Contents: CrispyCookieShield
+Before you is a battlefield of burgers.
+Towering burger forts and fry soldiers engage in a delicious war.
+Lettuce fields serve as cover, and tomato slice frisbees fly through the air.
+The sizzle of grilling patties echoes like distant drumbeats.
+---
+PizzaPlayhouse
+Contents: ZanyMeatballEgg
+A palace of pizza slices forms a maze of cheesy corridors and tomatoey halls.
+The aroma is intoxicating, with cheese stalactites hanging from the ceiling and pepperoni decor.
+Each room offers a different pizza flavor, enticing visitors to nibble on the walls.
+---
+DessertDunes
+Contents: PlatinumPancake
+Powdered sugar dunes and fudge rivers create a landscape that's both beautiful and sweet.
+Candy cacti add to the charm, while chocolate camels roam the horizon.
+The sky is a soft pastel, reminiscent of cotton candy at sunset.
+---
+TacoTerritory
+Contents: FizzyPopPotion
+Giant taco shells and pools of guacamole mark this zesty territory.
+It's a fiesta of flavors and fun where salsa waterfalls and cheese geysers abound.
+The sound of mariachi music fills the air, adding to the festive atmosphere.
+---
+North KetchupKartway
+Contents: CottonCandyCloud
+A racetrack of ketchup packets underfoot and mustard guardrails.
+The squelching sounds add to the race's hilarity, and the smell of fresh tomatoes and spices is invigorating.
+Racers in hotdog cars zoom past, leaving trails of condiments in their wake.
+---
+SodaSplash
+Contents: WackyVeggieEgg
+Soda fountains and fizzy pop geysers create a bubbly and refreshing scene.
+The air is filled with the scent of sweet soda.
+---
+South MustardMeadow
+Contents: ChocoChalice
+Fields of mustard flowers under a mayonnaise sun.
+The ground is soft and squishy, perfect for a picnic.
+---
+MacaroonMountain
+Contents: NuggetNestlingEgg
+A mountain of macaroons towers over you.
+Each step releases a sweet almond scent, filling the air with warmth.
+---
+CottonCandyKingdom
+A kingdom made entirely of cotton candy clouds, fluffy and soft.
+The pastel colors create a dreamlike atmosphere.
+---
+CandyCaneForest
+A magical forest where candy canes grow like trees.
+The ground is sprinkled with sugar, and the air smells like peppermint.
+Colorful birds made of gummy candy chirp melodiously from the branches.
+---
+GingerbreadHouse
+A quaint house made entirely of gingerbread and icing sits in a clearing.
+Its windows are of clear sugar glass, and the door is adorned with gumdrops.
+A wisp of sweet-smelling smoke curls up from its licorice chimney.
+---
+ChocolateRiver
+A slow-moving river of rich, creamy chocolate flows here.
+Marshmallow ducks float on its surface, and the banks are lined with wafer cookie rocks.
+Occasionally, a chocolate fish jumps, creating ripples of cocoa.
+---
+PopcornPlains
+Vast plains where popcorn kernels grow like corn, constantly popping.
+The ground is a patchwork of buttery yellow and white.
+The sound of popping is a constant, soothing background noise.
+---
+IceCreamIsland
+An island where the ground is soft vanilla ice cream and the trees bear a variety of ice cream flavors.
+Waffle cone animals roam freely, and the sea around it is a chilled milkshake.
+---
+MarshmallowMeadow
+A soft, squishy meadow of marshmallow.
+The ground feels like walking on clouds, and the air is filled with a sweet scent.
+Marshmallow bunnies hop around, leaving sugary footprints.
+---
+LollipopLagoon
+A lagoon where giant lollipops sprout like reeds.
+The water is sweet and sticky, with candy fish swimming around.
+The sky reflects a myriad of vibrant colors from the lollipops.
+---
+GummyBearGarden
+A garden where gummy bears frolic among jellybean bushes and licorice flowers.
+The air is warm and smells like mixed fruits.
+The gummy bears are friendly and often share their candy treats.
+---
+SundaeSummit
+A towering peak topped with whipped cream and a cherry.
+The slopes are layered with different ice cream flavors.
+Adventurous climbers are rewarded with breathtakingly sweet views.
+---
+CaramelCave
+A cave with walls that drip with golden caramel.
+The floor is a mix of nougat and nuts, creating a crunchy carpet.
+Dim light filters through cracks, giving the caramel a beautiful, glowing appearance.
+---
+===
+Exits:
+HotdogHilarity
+e
+CondimentCarnival
+---
+CondimentCarnival
+w
+HotdogHilarity
+---
+CondimentCarnival
+s
+BurgerBonanza
+---
+BurgerBonanza
+n
+CondimentCarnival
+---
+BurgerBonanza
+e
+PizzaPlayhouse
+---
+PizzaPlayhouse
+w
+BurgerBonanza
+---
+PizzaPlayhouse
+s
+DessertDunes
+---
+DessertDunes
+n
+PizzaPlayhouse
+---
+DessertDunes
+e
+TacoTerritory
+---
+TacoTerritory
+w
+DessertDunes
+---
+TacoTerritory
+s
+North KetchupKartway
+---
+North KetchupKartway
+n
+TacoTerritory
+---
+North KetchupKartway
+e
+SodaSplash
+---
+SodaSplash
+w
+North KetchupKartway
+---
+SodaSplash
+s
+South MustardMeadow
+---
+South MustardMeadow
+n
+SodaSplash
+---
+South MustardMeadow
+e
+MacaroonMountain
+---
+MacaroonMountain
+w
+South MustardMeadow
+---
+HotdogHilarity
+u
+CottonCandyKingdom
+CottonCandyCloud
+---
+CottonCandyKingdom
+d
+HotdogHilarity
+---
+===
