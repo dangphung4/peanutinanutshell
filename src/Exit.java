@@ -86,4 +86,3 @@ public class Exit {
     void setLocked(boolean value) { this.locked = value; }
 
 }
-

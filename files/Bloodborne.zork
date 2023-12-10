@@ -1,0 +1,528 @@
+BloodBorne
+Zork++
+===
+Items:
+BloodVial
+1
+examine[Score(1)]::A vial filled with blood, maybe this is what led to the overrunning of beasts.
+use[Wound(-5),Disappear]:You stab the vial into your right leg, you feel sick, but also stronger.
+---
+SickroomNote
+0
+examine[Score(5)]::A note that reads "You are now one with some Yharnam blood of your own."
+burn[Disappear]:The note burns brightly for a second, before being reduced to ashes.
+---
+SickroomKey
+0
+examine[Score(5)]::An ordinary metal key, maybe this could open some doors previously un opened.
+---
+TombKey
+0
+examine[Score(5)]::A small key that might fit in a keyhole somewhere with graves.
+---
+Vicar'sNote
+0
+examine[Score(5)]::A note the reads "Oh Laurence, what shall i ever do about the hunter ravashing Cathedral Ward. I hope he doesnt end up here. Please give me guidance."
+---
+RemnantOfTheBloodStarvedBeast
+0
+examine[Score(5)]::Part of the Blood Starved Beast's "wing", it feels fleshy and gross, maybe this could open some doors previously un opened.
+---
+RemnantOfTheDarkbeast
+0
+examine[Score(5)]::A patch of fur charged with energy, maybe this could open some doors previously un opened.
+---
+OldWorkshopKey
+0
+examine[Score(5)]::A rusty key that might let one escape from the place it is found in.
+---
+CainhurstSummons
+0
+examine[Score(5)]::A letter adorned with a crest. It reads "Queen Annalise has summoned the nurse Iosefka to Cainhurst Castle for a meeting of upmost importance."
+---
+CrownOfIllusions
+10
+examine[Score(10)]::A gold crown with spikes and blood red gems cricling the top.
+wear[Score(5)]:The memories of an old Healing Church Executioner come back to you. You feel the sense the wanted to preserve and illusion of some sort.
+---
+VampireTooth
+15
+examine[Score(15)]::A tooth too long to be a normal human, but perhaps the owner wasnt exactly human themselves.
+---
+ByrgenwerthNote
+0
+examine[Score(5)]::A note that reads "Oh Laurence, why did you have to go down the path you did. You should have feared the Old Blood."
+---
+TonsilStone
+0
+examine[Score(5)]::Yuck, you dont want to be holding this, but you feel a sense of urgency to go somewhere south of the Grand Cathedral.
+---
+Yahar'gulKey
+0
+examine[Score(5)]::An old bent key, perhaps this could open up some new doors
+---
+CagedHead
+0
+examine[Score(10)]::A tall cage with a skull rattling around inside, perhaps the owner went insane.
+wear[Drop,Transform(Cage)]:You try to take out the skull and put it on youself, but as you try, you lose grasp and drop it on the ground.
+---
+Cage
+0
+examine[Score(5)]:The same cage that had the skull inside, put sith the skull now shattered and removeable.
+wear[score(50)]:You take out the pieces of skull and put the cage on your head. You feel a bit kooky.
+---
+Micolash'sKey
+0
+examine[Score(5)]::A rusty key that might lead to somewhere above Mergo's Loft.
+---
+NewBornOldOne
+10
+examine[Score(25)]::A worm like creature found laying beside an old doll. You feel a sense of cosmic terror coming from it.
+touch[Win]:You have finally found who, or now what, has left where you have been how it was.
+hold[Win]:You have finally found who, or now what, has left where you have been how it was.
+kill[Die]
+---
+Hunter'sMark
+2
+examine:A seal thats use is unknown.
+touch[Teleport,Disappear]: You feel disoriented 
+---
+===
+Rooms:
+1st Floor Sickroom
+Contents: SickroomNote
+You awake and find yourself in a clinic of sorts. On a desk lies a note.
+Welcome to Yharnam, hunter.  You must figure out who left this place the way it is, and what has happened to them.
+---
+Central Yharnam
+A eerily quiet city, with bodies of large, unnatural beasts and people strewn about.
+The people seems to be having some features of the beasts aswell.
+There is a large Bridge towering over the area.
+Off to the side is an old graveyard.
+---
+Great Bridge
+A bridge crossing over a chasm Connecting Central Yharnam and an area above.
+A terribly large beast lies still in the middle, it seems to be wearing tattered cleric garb of some kind.
+There is a gate at the end the bridge, but it is sealed off with no way to open.
+---
+Tomb of Oedon
+Contents: TombKey
+A graveyard filled with graves.
+The body of a beast wearing clothes similar to yours lies with a key
+Up a flight of stairs, oposite the entrance, is a gate.
+---
+Cathedral Ward
+A church of some sorts, it seems rather run down though.
+A few people mill about, muttering about someone who one came through here before.
+Outside to the left and behind the building you came in through, is another smaller church, with stairs inside leading down.
+Across the courtyard infront of the church is a door gaurded by a man.
+He says he wants proof of divine origin, whatever that could mean.
+---
+Old Yharnam
+A town filled with denizens that are afflicted with some sort of disease.
+You dont want to catch that, best get out of here quick.
+Down below seems to 
+---
+Church of the Good Chalice
+Contents: RemnantOfTheBloodStarvedBeast
+Another church, except this one has the entire roof missing.
+There is also a large beast with what could possibly be wings lying dormat on the ground.
+It looks as though there was a great battle here sometime before.
+---
+Graveyard of the Darkbeast
+Contents: RemnantOfTheDarkbeast
+A decently large field for being in the middle of a city.
+In the center lies a static giant beast, its body lightly crackling with lightning.
+There is also a door to the side, perhaps it could lead somewhere.
+---
+Upper Healing Church Workshop
+A slim cylindrical building towering above Cathedral Ward.
+There are forges and anvils everywhere, with cheap tools strewn about.
+A lower floor seems accessable from a ledge on the side of the building.
+---
+Lower Healing Church Workshop
+An open area inside and below the Upper Healing Church Workshop.
+A giant pile of the same cheap tools as above resides in the center of the room.
+Theres two door in here, one with chains crossing it which could possibly be opened, and another off in a hallway.
+---
+Abandoned Old Workshop
+Contents: OldWorkshopKey
+An open area below the city, but with access to sunlight somehow, and a small building in the center.
+The old building seems more like an old craftsman's abode.
+On a ledge sitting outside sits a broken doll, it seems like it was once loved, but not anymore.
+---
+Grand Cathedral
+Contents: Vicar'sNote,BloodVial
+A large corpse of a beast with white hair and priestess robes lies dormant in the center of the room.
+At the back is an alter of some sorts, with a large beast's skull lying upon it.
+A note sits next to the skull, it says that it was sent by "Vicar Amelia"
+---
+Hemwick Charnel Lane
+Down from the Grand Cathedral is a large sprawling graveyard.
+There are rundown buildings populating the edges of the area.
+Sitting before a bridge that ends abruptly, is a carrige with family crest adorning the side.
+---
+Witch's Abode
+Down the stair from the entrance is a room that stinks of somethign you dont want to know.
+Further past, is a singular jail cell with a skeleton sitting with solace.
+---
+Hypogean Gaol
+A prison of somesorts
+There are people sized cages filling the rooms.
+Perhaps people were kidnapped using them.
+---
+Forbidden Woods
+A dark forest filled with spiders.
+Off to the side, inside a cave, is a poison swamp, at the end, a ladder leading upwards.
+---
+Upper Clinic Sickroom
+Contents: CainhurstSummons,SickroomKey
+A clinic room fo sorts, As you look around you find some mail.
+It reads that it is to "Iosefka" whoever that may be.
+Amongst the letters is one that is adorned with a family crest.
+---
+Forsaken Castle Cainhurst
+A large castle in the middle of an unnatural snowstorm.
+You'd expect a castle to be filled, but it is empty.
+There is a path to the roof that looks of intrest.
+---
+Logarius's Seat
+Contents: CrownOfIllusions
+An arena of somesorts situated ontop of the castle.
+At the far end sits a throne with a large scythe rested against it.
+A crown also sits upon the seat of the throne.
+---
+Vileblood Queen's Chamber
+Contents: Vampireooth
+Behind an illusiory wall, dispelled by the crown, is a throne room.
+further into the room are to thrones, both empty and tattered.
+Upon the right one, lies a singular canine tooth, 
+but it seems too elongated to belong to a human
+---
+Forbidden Grave
+You enter through a crumbling stone archway at the bottom of the Forbidden Forest.
+here you find a marshy area with scorch marks covering the trees.
+On the other side of the entrance lies another stone archyway.
+---
+Byrgenwerth
+Contents: ByrgenwerthNote
+A building butting up agianst an expansive lake shrouded in moonlight.
+Inside you can see books all over the place, perhaps this was a place of learning or research.
+upstairs and outside on a balcony is a rockingchair, whoever used it was long gone.
+On the chair sits a note.
+---
+Moonside Lake
+Contents: TonsilStone
+As you enter the lake you are transported to another realm.
+Where you find yourself seems like the middle of the lake, with you standing on the water.
+Infront of you lies a large spider like creature covered in something not of this plane.
+---
+Yahar'gul Unseen Village
+Contents: Yahar'gulKey
+A town even more dilapidated than Old Yharnam, perhaps this place is even older.
+Around the streets are wagons carrying corpses that seem to meld together.
+---
+Yahar'gul Chapel
+A seemingly safe place in this abnormal part of the city.
+Further on you can see a plaza of sorts with a blood red moon hanging over.
+You never noticed before, but the moon is showing infront of the clouds, that cant be right.
+---
+Advent Plaza
+Contents: CagedHead
+A large plaza with spiral staircases leading up to balconies overseeing the plaza below.
+At the back is a room that seems like a small lecture hall, there are skeletons sittings in chairs filling the room.
+in the center is a chair with a cage on it.
+Perhaps they all followed the same doomed fate.
+---
+Nightmare of Mensis
+You awaken in a cave where the ground is made of skulls.
+Outside and around a cliff you can see a large building.
+It seems that its the only place to go as you have no way to return whence you came.
+---
+Mergo's Loft Base
+Inside the building You can find holes in the floor.
+There doesnt seem to be a bottom to them though.
+The only way forward is up a flight of stairs.
+---
+Mergo's Loft Middle
+Contents: Micolash'sKey
+A maze of corridors and stairs.
+Among the many rooms you can find a body wearing the same cage that brought you here in the first place.
+It also wears a key around its neck.
+---
+Wet Nurse's Lunarium
+Ontop of the building is an open area with a patch of grass in the middle.
+A baby stroller sits off to the side.
+the ground is scarred by deep cuts, it terrifies you as to what could have made them.
+---
+Hunter's Dream
+Contents: NewBornOldOne,Hunter'sMark
+An open area with a small building in the center.
+The building seems like it was once an old craftsman's abode.
+Outside you find an inactive doll, cradling a large worm of some kind.
+---
+===
+Exits:
+1st Floor Sickroom
+n
+Central Yharnam
+SickroomNote
+---
+Central Yharnam
+s
+1st Floor Sickroom
+SickroomKey
+---
+1st Floor Sickroom
+s
+Upper Clinic Sickroom
+SickroomKey
+---
+Upper Clinic Sickroom
+n
+1st Floor Sickroom
+SickroomKey
+---
+Central Yharnam
+u
+Great Bridge
+---
+Great Bridge
+d
+Central Yharnam
+---
+Central Yharnam
+w
+Tomb of Oedon
+---
+Tomb of Oedon
+e
+Central Yharnam
+---
+Tomb of Oedon
+u
+Cathedral Ward
+TombKey
+---
+Cathedral Ward
+d
+Tomb of Oedon
+---
+Cathedral Ward
+s
+Old Yharnam
+---
+Old Yharnam
+u
+Cathedral Ward
+---
+Cathedral Ward
+e
+Grand Cathedral
+---
+Grand Cathedral
+w
+Cathedral Ward
+---
+Cathedral Ward
+n
+Forbidden Woods
+Vicar'sNote
+---
+Forbidden Woods
+s
+Cathedral Ward
+---
+Cathedral Ward
+u
+Upper Healing Church Workshop
+RemnantOfTheBloodStarvedBeast
+---
+Upper Healing Church Workshop
+e
+Cathedral Ward
+---
+Old Yharnam
+e
+Church of the Good Chalice
+---
+Church of the Good Chalice
+u
+Old Yharnam
+---
+Old Yharnam
+d
+Hypogean Gaol
+RemnantOfTheBloodStarvedBeast
+---
+Church of the Good Chalice
+w
+Graveyard of the Darkbeast
+RemnantOfTheDarkbeast
+---
+Graveyard of the Darkbeast
+e
+Church of the Good Chalice
+RemnantOfTheDarkbeast
+---
+Upper Healing Church Workshop
+d
+Lower Healing Church Workshop
+---
+Lower Healing Church Workshop
+n
+Upper Healing Church Workshop
+OldWorkshopKey
+---
+Lower Healing Church Workshop
+s
+Abandoned Old Workshop
+---
+Abandoned Old Workshop
+n
+Lower Healing Church Workshop
+---
+Grand Cathedral
+n
+Hemwick Charnel Lane
+---
+Hemwick Charnel Lane
+s
+Grand Cathedral
+---
+Grand Cathedral
+s
+Yahar'gul Unseen Village
+TonsilStone
+---
+Yahar'gul Unseen Village
+n
+Grand Cathedral
+---
+Hemwick Charnel Lane
+n
+Witch's Abode
+---
+Witch's Abode
+s
+Hemwick Charnel Lane
+---
+Hemwick Charnel Lane
+e
+Forsaken Castle Cainhurst
+CainhurstSummons
+---
+Forsaken Castle Cainhurst
+s
+Hemwick Charnel Lane
+---
+Hypogean Gaol
+e
+Graveyard of the Darkbeast
+---
+Graveyard of the Darkbeast
+w
+Hypogean Gaol
+---
+Hypogean Gaol
+e
+Yahar'gul Unseen Village
+Yahar'gulKey
+---
+Yahar'gul Unseen Village
+w
+Hypogean Gaol
+Yahar'gulKey
+---
+Forbidden Woods
+u
+Upper Clinic Sickroom
+---
+Upper Clinic Sickroom
+d
+Forbidden Woods
+---
+Forbidden Woods
+e
+Forbidden Grave
+---
+Forbidden Grave
+w
+Forbidden Woods
+---
+Forsaken Castle Cainhurst
+u
+Logarius's Seat
+---
+Logarius's Seat
+d
+Forsaken Castle Cainhurst
+---
+Logarius's Seat
+n
+Vileblood Queen's Chamber
+CrownOfIllusions
+---
+Vileblood Queen's Chamber
+s
+Logarius's Seat
+---
+Forbidden Grave
+e
+Byrgenwerth
+---
+Byrgenwerth
+s
+Forbidden Grave
+---
+Byrgenwerth
+n
+Moonside Lake
+---
+Moonside Lake
+s
+Byrgenwerth
+---
+Yahar'gul Unseen Village
+s
+Yahar'gul Chapel
+---
+Yahar'gul Chapel
+d
+Advent Plaza
+---
+Advent Plaza
+u
+Yahar'gul Chapel
+---
+Advent Plaza
+s
+Nightmare of Mensis
+CagedHead
+---
+Nightmare of Mensis
+u
+Mergo's Loft Base
+---
+Mergo's Loft Base
+d
+Nightmare of Mensis
+---
+Mergo's Loft Base
+u
+Mergo's Loft Middle
+---
+Mergo's Loft Middle
+u
+Wet Nurse's Lunarium
+Micolash'sKey
+---
+Wet Nurse's Lunarium
+d
+Mergo's Loft Middle
+---
+Wet Nurse's Lunarium
+u
+Hunter's Dream
+---
+===
