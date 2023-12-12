@@ -1,0 +1,287 @@
+Infiltration
+Zork++
+===
+Items:
+CommandRoomKey
+1
+examine[Score(10)]::A key that leads to the command room, where aliens are planning something sinister.
+---
+AlienCloak
+3
+examine[Score(5)]::A mysterious cloak that seems to have some sort of effect when worn.
+wear[Teleport,Drop]: The fine fabrics of the cloak have magically transported you.
+---
+StorageRoomKey
+1
+examine[Score(1)]::A key that leads to an area with a variety of equipment used in constructing UFOs.
+---
+TreasuryRoomKey
+1
+examine[Score(1)]::A key that leads to a room with an abundance of valuable treasure harvested from planets abroad.
+---
+MysteriousBox
+5
+examine[Score(5)]::A weird box with strange stains.
+unbox[transform(ThroneRoomKey)]:You open the box and find a transparent, purple key.
+---
+ThroneRoomKey
+1
+examine[Score(5)]::This key leads to King Alientron the Third's throne room!
+---
+AlientronRing
+2
+examine[Score(20)]::A ring that seems to grant supernatural powers to its beholder.
+wear[Win]:Power surges through your veins and you become the next king of the alien race.
+break[Die]
+---
+SuspiciousSubstance
+1
+examine[Score(10)]::Is the risk worth it?
+drink[Disappear,Wound(-5)]:Several arms and feet grow from your body.
+---
+DiningRoomKey
+1
+examine[Score(5)]::A key that leads to a room with atrocious "food." 
+---
+AlienEgg
+5
+examine[Score(10)]::An unhatched egg that should hatch into a male alien given the right environment.
+---
+===
+Rooms:
+Entrance Chamber
+Contents: DiningRoomKey
+You were successful in infiltrating an alien ship.  You must navigate it, searching the ship in order to locate the valuable Alientron's Ring.  Find the ring before Alientron uses it to wipe out humanity once and for all!
+---
+Dining Room
+A large room filled with atrocious food that makes your stomach turn.  Tentacles, parasites and eyeballs are all served.
+---
+Engine Room
+The ship's primary engines are in this room, ensuring that it has enough engine-power to travel across space and visit planets abroad.  It's very loud in here as the engines constantly work under an immense workload.
+---
+Storage Room
+Contents: CommandRoomKey
+Aliens seem to have stored items of all sorts of varities here.  Rows of crates full of unique items cover the walls.
+---
+Prison Room
+A room with jail cells that prevent escape via the use of ray shields.  It seems that the galaxy's many criminals and space pirates have no chance of escaping should they be captured.
+---
+Hyperdrive Chamber
+Contents: StorageRoomKey
+A chamber that manufactures a significant amount of energy.  The energy is utilized in order to make the ship travel faster than the speed of light.
+---
+Security Hub
+A room with numerous security cameras spying on various parts of the ship.  This room is likely used to ensure workers are as efficient and effective as possible.
+---
+Weapons Room
+Contents: TreasuryRoomKey
+A room with all sorts of deadly weapons that could vaporize mass within a millisecond.  Many of these weapons don't seem to rely on ammunition and instead utilize energy bursts to output damage.
+---
+Bioengineering Lab
+Contents: AlienEgg
+Mutated creatures bark and whine to be let out of their cages.  It seems the aliens on this ship have done quite a bit of experimenting on local planet populations.
+---
+Treasury
+A room with all sorts of trinkets and treasures that have been collected from space.  The Earth value on all these goods would be immense!
+---
+Armory
+A room with a variety of armor, forged from ores mined across planets.  The armors are significantly stronger than even the strongest military protection on Earth.
+---
+Asteroid Mining Control
+With asteroids yielding valuable resources, this room seeks to control the ship's mining system.  A cannon of sorts emerges from the bottom of the ship and vaporizes the asteroid.  A vacuum then opens up from the ship, collecting all the material.
+---
+Human Surveillance Room
+Cameras have been placed across Earth in order to spy on the human race.  The cameras show everything from  the offices of politicians to dad's watching football.
+---
+Energy Matrix Chamber
+This is where the ship's energy is created.  This is the energy that is transported to the engine room, hyperdrive chamber, etc.
+---
+Mystical Ritual Chamber
+The aliens seem to have adopted a mysterious religious tradition that is hard to decipher.  It seems that sacrifices take place here, and you observe robes hanging in a nearby wardrobe.
+---
+Chameleon Cloak Room
+Contents: AlienCloak
+A cloak testing room with a variety of cloaks possessing unique and magical abilities.  Some have the ability to transform, teleport or increase the strength of its wearer.
+---
+Robotics Design
+Contents: ThroneRoomKey
+It seems that aliens are no stranger to the power of Artificial Intelligence either.  Advanced robots with different functions line the walls from waiters to translators.
+---
+Temperature Control Room
+Contents: SuspiciousSubstance
+The ship's temperature is regulated here.  Aliens seem to prefer extremely cold temperatures!
+---
+Cryogenic Vault
+Cryogenic chambers full of immense cold preserve the bodies of numerous aliens.  It seems that they believe that this will advance time in some capacity.
+---
+Command Room
+The ship's command center, where a captain sits to coordinate all the activities that transpire.  A holographic display of the ship's anatomy is present in the center.
+---
+Throne Room
+Contents: AlientronRing
+Where King Alientron resides and answers to the captain.  The room is made of pure gold, with a massive 8 foot throne in the center.  A massive collection of books is present as well, though the language is unable to be deciphered.
+---
+===
+Exits:
+Entrance Chamber
+n
+Dining Room
+DiningRoomKey
+---
+Dining Room
+s
+Entrance Chamber
+---
+Dining Room
+w
+Engine Room
+---
+Engine Room
+e
+Dining Room
+---
+Engine Room
+s
+Storage Room
+StorageRoomKey
+---
+Storage Room
+n
+Engine Room
+---
+Storage Room
+s
+Prison Room
+---
+Dining Room
+e
+Hyperdrive Chamber
+---
+Hyperdrive Chamber
+w
+Dining Room
+---
+Dining Room
+n
+Security Hub
+---
+Security Hub
+s
+Dining Room
+---
+Security Hub
+w
+Weapons Room
+---
+Weapons Room
+e
+Security Hub
+---
+Security Hub
+e
+Bioengineering Lab
+---
+Bioengineering Lab
+w
+Security Hub
+---
+Security Hub
+n
+Armory
+---
+Armory 
+s
+Security Hub
+---
+Bioengineering Lab
+n
+Treasury
+TreasuryRoomKey
+---
+Treasury
+s
+Bioengineering Lab
+---
+Treasury
+w
+Asteroid Mining Control
+---
+Asteroid Mining Control
+e
+Treasury
+---
+Treasury
+n
+Mystical Ritual Chamber
+---
+Mystical Ritual Chamber
+s
+Treasury
+---
+Mystical Ritual Chamber
+w
+Energy Matrix Chamber
+---
+Energy Matrix Chamber
+e
+Mystical Ritual Chamber
+---
+Mystical Ritual Chamber
+e
+Human Surveillance Room
+---
+Human Surveillance Room
+w
+Mystical Ritual Chamber
+---
+Mystical Ritual Chamber
+n
+Chameleon Cloak Room
+---
+Chameleon Cloak Room
+s
+Mystical Ritual Chamber
+---
+Chameleon Cloak Room
+w
+Robotics Design
+---
+Robotics Design
+e
+Chameleon Cloak Room
+---
+Chameleon Cloak Room
+e
+Temperature Control Room
+---
+Temperature Control Room
+w
+Chameleon Cloak Room
+---
+Chameleon Cloak Room
+n
+Cryogenic Vault
+---
+Cryogenic Vault 
+s
+Chameleon Cloak Room
+---
+Cryogenic Vault
+w
+Command Room
+CommandRoomKey
+---
+Command Room
+e
+Cryogenic Vault
+---
+Command Room
+n
+Throne Room
+ThroneRoomKey
+---
+Throne Room
+s
+Command Room
+---
+===
