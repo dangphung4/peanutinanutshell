@@ -25,13 +25,13 @@ There is a dagger here.
 You can go s to North Kingsroad.
 > 
 ```
-## Running Locally
+## Running Locally and playing Dang's game
   - clone the repo
   - then run these scripts:
  ```bash
    cd ~/240-fall2023-team5/src
    javac *.java
-   java Interpreter ../files/(your_file_here).(zork/sav)
+   java Interpreter ../files/SnackLand.zork 
    ```
 
 ### Alternatively if you wanted to play a different file
