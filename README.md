@@ -1,5 +1,4 @@
-# 240-Fall 2023 UMW Team 5
-## Nova, Dang, Cade
+
 Welcome to Zork, a text based adventure, this is a spin off of the very popular video game serires from the 1970s. 
 
 ## Zork Dungeons you can play: Bloodborne.zork , SnackLand.zork , infiltration.zork , Westeros.zork  
